@@ -11,7 +11,7 @@
 			"default": 0
 		}
 	},
-	"icon": "smiley",
+	"icon": "insert",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {

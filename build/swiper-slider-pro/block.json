@@ -1,23 +1,23 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "create-block/counter",
+  "name": "create-block/swiper-slider",
   "version": "0.1.0",
-  "title": "Counter Block",
+  "title": "swiper slider pro",
   "category": "widgets",
-  "attributes": {
-    "count": {
-      "type": "number",
-      "default": 0
-    }
-  },
-  "icon": "insert",
+  "icon": "smiley",
   "description": "Example block scaffolded with Create Block tool.",
   "example": {},
   "supports": {
     "html": false
   },
-  "textdomain": "counter",
+  "attributes": {
+    "slides": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "textdomain": "swiper-slider-pro",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
