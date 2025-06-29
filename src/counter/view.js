@@ -1,25 +1,50 @@
-/**
- * Use this file for JavaScript code that you want to run in the front-end
- * on posts/pages that contain this block.
- *
- * When this file is defined as the value of the `viewScript` property
- * in `block.json` it will be enqueued on the front end of the site.
- *
- * Example:
- *
- * ```js
- * {
- *   "viewScript": "file:./view.js"
- * }
- * ```
- *
- * If you're not making any changes to this file because your project doesn't need any
- * JavaScript running in the front-end, then you should delete this file and remove
- * the `viewScript` property from `block.json`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
- */
+import React, { useState, useEffect } from "react";
+import { createRoot } from "react-dom/client";
 
-/* eslint-disable no-console */
-console.log("Hello World! (from create-block-my-first-block block)");
-/* eslint-enable no-console */
+function CounterFrontend() {
+	const [count, setCount] = useState(0);
+
+	// Load count on mount
+	useEffect(() => {
+		fetch("/my-site/wordpress/wp-json/my-counter/v1/count")
+			.then((res) => res.json())
+			.then((data) => setCount(data.count));
+	}, []);
+	console.log(count);
+
+	const increase = () => {
+		const newCount = count + 1;
+		setCount(newCount);
+		fetch("/my-site/wordpress/wp-json/my-counter/v1/count", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ count: newCount }),
+		});
+	};
+
+	return (
+		<div className="bg-blue-100 p-4 rounded">
+			<h3 className="text-xl font-bold mb-2">Frontend Counter</h3>
+			<p>Current Count: {count}</p>
+			<button
+				className="bg-blue-600 text-white px-3 py-1 mt-2 rounded"
+				onClick={increase}
+			>
+				Increase
+			</button>
+		</div>
+	);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+	const containers = document.querySelectorAll(
+		".wp-block-create-block-counter",
+	);
+
+	containers.forEach((container) => {
+		const root = createRoot(container);
+		root.render(<CounterFrontend />);
+	});
+});
