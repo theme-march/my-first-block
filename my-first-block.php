@@ -36,6 +36,7 @@ function create_block_my_first_block_block_init() {
 add_action( 'init', 'create_block_my_first_block_block_init' );
 
 
+///////////////// Counter REST API and Database Table creation//////////////////
 /**
  * Create custom table on plugin activation
  */
@@ -54,7 +55,6 @@ function my_counter_create_table() {
     dbDelta( $sql );
 }
 register_activation_hook( __FILE__, 'my_counter_create_table' );
-
 
 /**
  * Register REST API route
@@ -114,28 +114,4 @@ function my_counter_handle_request( WP_REST_Request $request ) {
 }
 
 
-
-function enqueue_swiper_slider_assets() {
-  wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css');
-  wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js', array(), null, true);
-
-  wp_add_inline_script('swiper-js', "
-    document.addEventListener('DOMContentLoaded', function () {
-      new Swiper('.my-swiper-container', {
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 20,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
-    });
-  ");
-}
-add_action('enqueue_block_assets', 'enqueue_swiper_slider_assets');
-
+//////////// funfact REST API and Database Table creation/////////////

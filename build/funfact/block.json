@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/funfact",
+  "version": "0.1.0",
+  "title": "Fun Fact Block",
+  "category": "widgets",
+  "attributes": {
+    "items": {
+      "type": "array",
+      "default": [
+        {
+          "count": 200,
+          "title": "Speakers",
+          "desc": "Some description"
+        }
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "icon": "insert",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true
+    }
+  },
+  "textdomain": "funfact",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}
