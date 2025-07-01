@@ -36,6 +36,32 @@ function create_block_my_first_block_block_init() {
 add_action( 'init', 'create_block_my_first_block_block_init' );
 
 
+function akash_register_block_category( $categories, $post ) {
+	return array_merge(
+		
+		[
+			[
+				'slug'  => 'akash',
+				'title' => '🌟 Akash Blocks',
+			],
+		],
+        $categories
+	);
+
+    // $custom_category = [
+    //     [
+    //         'slug'  => 'akash',
+    //         'title' => '🌟 Akash Blocks',
+    //     ]
+    // ];
+
+    // return array_merge( $custom_category, $categories );
+
+}
+add_filter( 'block_categories_all', 'akash_register_block_category', 1, 2 );
+
+
+
 ///////////////// Counter REST API and Database Table creation//////////////////
 /**
  * Create custom table on plugin activation
@@ -114,4 +140,8 @@ function my_counter_handle_request( WP_REST_Request $request ) {
 }
 
 
-//////////// funfact REST API and Database Table creation/////////////
+
+
+
+
+

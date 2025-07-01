@@ -4,7 +4,7 @@
   "name": "create-block/counter",
   "version": "0.1.0",
   "title": "Counter Block",
-  "category": "widgets",
+  "category": "akash",
   "attributes": {
     "count": {
       "type": "number",

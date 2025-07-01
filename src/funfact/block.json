@@ -4,33 +4,54 @@
 	"name": "create-block/funfact",
 	"version": "0.1.0",
 	"title": "Fun Fact Block",
-	"category": "widgets",
+	"category": "akash",
 	"attributes": {
 		"items": {
 			"type": "array",
 			"default": [
-				{ "count": 200, "title": "Speakers", "desc": "Some description" }
+				{
+					"count": 0,
+					"title": "New Title",
+					"desc": "New description",
+					"fontSize": "20px"
+				}
 			],
 			"items": {
 				"type": "object",
 				"properties": {
-					"count": { "type": "string" },
-					"title": { "type": "string" },
-					"desc": { "type": "string" }
+					"count": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"desc": {
+						"type": "string"
+					}
 				}
 			}
 		}
 	},
-
-	"icon": "insert",
+	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",
-	"example": {},
+	"example": {
+		"attributes": {
+			"items": [
+				{
+					"count": "200",
+					"title": "Speakers",
+					"desc": "Some description"
+				}
+			]
+		}
+	},
 	"supports": {
 		"html": false,
-		 "color": {
-      "background": true,
-      "text": true
-    }
+		"align": true,
+		"color": {
+			"background": true,
+			"text": true
+		}
 	},
 	"textdomain": "funfact",
 	"editorScript": "file:./index.js",

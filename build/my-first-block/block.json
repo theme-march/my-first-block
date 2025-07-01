@@ -4,7 +4,7 @@
   "name": "create-block/my-first-block",
   "version": "0.1.0",
   "title": "My First Block",
-  "category": "widgets",
+  "category": "akash",
   "icon": "smiley",
   "description": "Example block scaffolded with Create Block tool.",
   "example": {},

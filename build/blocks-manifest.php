@@ -7,7 +7,7 @@ return array(
 		'name' => 'create-block/counter',
 		'version' => '0.1.0',
 		'title' => 'Counter Block',
-		'category' => 'widgets',
+		'category' => 'akash',
 		'attributes' => array(
 			'count' => array(
 				'type' => 'number',
@@ -34,15 +34,16 @@ return array(
 		'name' => 'create-block/funfact',
 		'version' => '0.1.0',
 		'title' => 'Fun Fact Block',
-		'category' => 'widgets',
+		'category' => 'akash',
 		'attributes' => array(
 			'items' => array(
 				'type' => 'array',
 				'default' => array(
 					array(
-						'count' => 200,
-						'title' => 'Speakers',
-						'desc' => 'Some description'
+						'count' => 0,
+						'title' => 'New Title',
+						'desc' => 'New description',
+						'fontSize' => '20px'
 					)
 				),
 				'items' => array(
@@ -61,13 +62,22 @@ return array(
 				)
 			)
 		),
-		'icon' => 'insert',
+		'icon' => 'smiley',
 		'description' => 'Example block scaffolded with Create Block tool.',
 		'example' => array(
-			
+			'attributes' => array(
+				'items' => array(
+					array(
+						'count' => '200',
+						'title' => 'Speakers',
+						'desc' => 'Some description'
+					)
+				)
+			)
 		),
 		'supports' => array(
 			'html' => false,
+			'align' => true,
 			'color' => array(
 				'background' => true,
 				'text' => true
@@ -85,7 +95,7 @@ return array(
 		'name' => 'create-block/my-first-block',
 		'version' => '0.1.0',
 		'title' => 'My First Block',
-		'category' => 'widgets',
+		'category' => 'akash',
 		'icon' => 'smiley',
 		'description' => 'Example block scaffolded with Create Block tool.',
 		'example' => array(

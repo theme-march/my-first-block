@@ -10,11 +10,14 @@ export default function save({ attributes }) {
 					{items.map((item, index) => (
 						<div key={index} className="funfact-content__item">
 							<RichText.Content
-								data-target={item.count}
+								// data-target={item.count}
 								tagName="h2"
 								className="counter"
 								value={item.count}
 							/>
+							{/* <h2 className="counter" style={{ fontSize: item.fontSize }}>
+								{item.count}
+							</h2> */}
 							<RichText.Content
 								tagName="h6"
 								className="funfact-content__item--title"

@@ -9741,30 +9741,42 @@ gsap__WEBPACK_IMPORTED_MODULE_0__["default"].registerPlugin(gsap_ScrollTrigger__
 function initCounters() {
   const counters = document.querySelectorAll(".counter:not(.animated)");
   counters.forEach(counter => {
-    const fullText = counter.dataset.target || counter.innerText.trim();
-    const match = fullText.match(/^(\d+)(.*)$/);
-    const numberPart = match ? parseInt(match[1]) : 0;
-    const suffixPart = match?.[2] || "";
-    counter.classList.add("animated"); // prevent double animation
+    // Recursively find the deepest text node inside the counter
+    const walker = document.createTreeWalker(counter, NodeFilter.SHOW_TEXT, null, false);
+    let targetTextNode = null;
+    while (walker.nextNode()) {
+      const text = walker.currentNode.textContent.trim();
+      if (/^\d+/.test(text)) {
+        targetTextNode = walker.currentNode;
+        break;
+      }
+    }
+    if (!targetTextNode) return;
+    const rawText = targetTextNode.textContent.trim();
+    const match = rawText.match(/^(\d+)(.*)$/);
+    if (!match) return;
+    const numberPart = parseInt(match[1]);
+    const suffixPart = match[2] || "";
+    counter.classList.add("animated");
 
-    // Inject structured span for animation + static suffix
-    counter.innerHTML = `
-			<span class="count-value">0</span>
-			<span class="suffix">${suffixPart}</span>
-		`;
-    const valueEl = counter.querySelector(".count-value");
-    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(valueEl, {
-      textContent: numberPart,
+    // Animate number inside text node
+    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to({
+      val: 0
+    }, {
+      val: numberPart,
       duration: 2,
+      ease: "power1.out",
       scrollTrigger: {
         trigger: counter,
         start: "top 90%",
         toggleActions: "play none none none"
       },
       snap: {
-        textContent: 1
+        val: 1
       },
-      ease: "power1.out"
+      onUpdate: function () {
+        targetTextNode.textContent = Math.floor(this.targets()[0].val) + suffixPart;
+      }
     });
   });
 }

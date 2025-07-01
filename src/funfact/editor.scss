@@ -1,75 +1,74 @@
-/**
- * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
- */
+// /**
+//  * The following styles get applied inside the editor only.
+//  *
+//  * Replace them with your own styles or remove the file completely.
+//  */
 
-.funfact-content {
-	padding: 20px;
+// .funfact-content {
+// 	padding: 20px;
 
-	&__wapper {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		gap: 30px;
-	}
+// 	&__wapper {
+// 		display: flex;
+// 		justify-content: space-between;
+// 		flex-wrap: wrap;
+// 		gap: 30px;
+// 	}
 
-	&__item {
-		flex: 1 1 30%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		padding: 20px;
-		border-radius: 8px;
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+// 	&__item {
+// 		flex: 1 1 30%;
+// 		display: flex;
+// 		flex-direction: column;
+// 		align-items: center;
+// 		text-align: center;
+// 		padding: 20px;
+// 		border-radius: 8px;
+// 		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 
-		.counter {
-			font-weight: bold;
-			font-size: 64px;
-			line-height: 100%;
-			margin: 5px;
-		}
+// 		.counter {
+// 			font-size: 64px;
+// 			line-height: 100%;
+// 			margin: 5px;
+// 		}
 
-		&--title {
-			font-size: 24px;
-			line-height: 110%;
-			margin: 5px;
-		}
+// 		&--title {
+// 			font-size: 24px;
+// 			line-height: 110%;
+// 			margin: 5px;
+// 		}
 
-		&--desp {
-			margin-top: 5px;
-			font-size: 16px;
-			margin: 5px;
-		}
-	}
-}
+// 		&--desp {
+// 			margin-top: 5px;
+// 			font-size: 16px;
+// 			margin: 5px;
+// 		}
+// 	}
+// }
 
-// Responsive
-@media screen and (max-width: 991px) {
-	.funfact-content {
-		&__wapper {
-			justify-content: space-around;
-		}
-	}
-}
+// // Responsive
+// @media screen and (max-width: 991px) {
+// 	.funfact-content {
+// 		&__wapper {
+// 			justify-content: space-around;
+// 		}
+// 	}
+// }
 
-@media screen and (max-width: 767px) {
-	.funfact-content {
-		&__wapper {
-			flex-direction: column;
-			gap: 50px;
-		}
+// @media screen and (max-width: 767px) {
+// 	.funfact-content {
+// 		&__wapper {
+// 			flex-direction: column;
+// 			gap: 50px;
+// 		}
 
-		&__item {
-			&--cunter {
-				font-size: 48px;
-			}
-		}
-	}
-}
+// 		&__item {
+// 			&--cunter {
+// 				font-size: 48px;
+// 			}
+// 		}
+// 	}
+// }
 
-// Gutenberg Editor only style (highlight selected block)
-.is-selected .funfact-content__item {
-	outline: 2px solid #007cba;
-}
+// // Gutenberg Editor only style (highlight selected block)
+// .is-selected .funfact-content__item {
+// 	outline: 2px solid #007cba;
+// }

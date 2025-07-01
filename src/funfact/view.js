@@ -8,32 +8,53 @@ function initCounters() {
 	const counters = document.querySelectorAll(".counter:not(.animated)");
 
 	counters.forEach((counter) => {
-		const fullText = counter.dataset.target || counter.innerText.trim();
-		const match = fullText.match(/^(\d+)(.*)$/);
-		const numberPart = match ? parseInt(match[1]) : 0;
-		const suffixPart = match?.[2] || "";
+		// Recursively find the deepest text node inside the counter
+		const walker = document.createTreeWalker(
+			counter,
+			NodeFilter.SHOW_TEXT,
+			null,
+			false,
+		);
 
-		counter.classList.add("animated"); // prevent double animation
+		let targetTextNode = null;
+		while (walker.nextNode()) {
+			const text = walker.currentNode.textContent.trim();
+			if (/^\d+/.test(text)) {
+				targetTextNode = walker.currentNode;
+				break;
+			}
+		}
 
-		// Inject structured span for animation + static suffix
-		counter.innerHTML = `
-			<span class="count-value">0</span>
-			<span class="suffix">${suffixPart}</span>
-		`;
+		if (!targetTextNode) return;
 
-		const valueEl = counter.querySelector(".count-value");
+		const rawText = targetTextNode.textContent.trim();
+		const match = rawText.match(/^(\d+)(.*)$/);
+		if (!match) return;
 
-		gsap.to(valueEl, {
-			textContent: numberPart,
-			duration: 2,
-			scrollTrigger: {
-				trigger: counter,
-				start: "top 90%",
-				toggleActions: "play none none none",
+		const numberPart = parseInt(match[1]);
+		const suffixPart = match[2] || "";
+
+		counter.classList.add("animated");
+
+		// Animate number inside text node
+		gsap.to(
+			{ val: 0 },
+			{
+				val: numberPart,
+				duration: 2,
+				ease: "power1.out",
+				scrollTrigger: {
+					trigger: counter,
+					start: "top 90%",
+					toggleActions: "play none none none",
+				},
+				snap: { val: 1 },
+				onUpdate: function () {
+					targetTextNode.textContent =
+						Math.floor(this.targets()[0].val) + suffixPart;
+				},
 			},
-			snap: { textContent: 1 },
-			ease: "power1.out",
-		});
+		);
 	});
 }
 
