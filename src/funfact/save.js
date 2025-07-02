@@ -6,7 +6,7 @@ export default function save({ attributes }) {
 	return (
 		<div {...useBlockProps.save()}>
 			<div className="funfact-content">
-				<div className="funfact-content__wapper">
+				<div className="funfact-content__wrapper">
 					{items.map((item, index) => (
 						<div key={index} className="funfact-content__item">
 							<RichText.Content

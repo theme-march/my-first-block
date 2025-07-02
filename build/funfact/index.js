@@ -63,6 +63,89 @@ function FontSizeSettings({
 
 /***/ }),
 
+/***/ "./src/funfact/components/FunFactItem.js":
+/*!***********************************************!*\
+  !*** ./src/funfact/components/FunFactItem.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FunFactItem)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function FunFactItem({
+  item,
+  index,
+  isActive,
+  setActiveIndex,
+  updateItem,
+  removeItem
+}) {
+  const handleClick = () => setActiveIndex(index);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "funfact-content__item",
+    onClick: handleClick,
+    style: {
+      border: isActive ? "2px solid #007cba" : "1px solid transparent",
+      padding: "10px",
+      borderRadius: "6px",
+      marginBottom: "15px",
+      backgroundColor: isActive ? "#f0f8ff" : "transparent",
+      cursor: "pointer"
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+      tagName: "h2",
+      className: "counter",
+      value: item.count,
+      onChange: val => updateItem(index, "count", val.replace(/[^\d]/g, "")) // Validation: only digits
+      ,
+      placeholder: "0",
+      style: {
+        fontSize: item.countFontSize || "24px"
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+      tagName: "h6",
+      className: "funfact-content__item--title",
+      value: item.title,
+      onChange: val => updateItem(index, "title", val),
+      placeholder: "Enter title",
+      style: {
+        fontSize: item.titleFontSize || "18px"
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+      tagName: "p",
+      className: "funfact-content__item--desc",
+      value: item.desc,
+      onChange: val => updateItem(index, "desc", val),
+      placeholder: "Enter description",
+      style: {
+        fontSize: item.descFontSize || "16px"
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      isDestructive: true,
+      onClick: e => {
+        e.stopPropagation(); // Prevent parent click
+        removeItem(index);
+      },
+      style: {
+        marginTop: "10px"
+      },
+      children: "Remove"
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./src/funfact/edit.js":
 /*!*****************************!*\
   !*** ./src/funfact/edit.js ***!
@@ -82,169 +165,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_FontSizeSettings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/FontSizeSettings */ "./src/funfact/components/FontSizeSettings.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
-// import { __ } from "@wordpress/i18n";
-// import {
-// 	useBlockProps,
-// 	RichText,
-// 	InspectorControls,
-// 	MediaUpload,
-// 	MediaUploadCheck,
-// } from "@wordpress/block-editor";
-// import { Button, PanelBody, RangeControl } from "@wordpress/components";
-// import { useState } from "@wordpress/element";
-
-// export default function Edit({ attributes, setAttributes }) {
-// 	const { items } = attributes;
-// 	const [activeIndex, setActiveIndex] = useState(null);
-
-// 	const updateItem = (index, field, value) => {
-// 		const updated = [...items];
-// 		updated[index] = {
-// 			...updated[index],
-// 			[field]: value,
-// 		};
-// 		setAttributes({ items: updated });
-// 	};
-
-// 	const addNewItem = () => {
-// 		const updated = [
-// 			...items,
-// 			{
-// 				count: 0,
-// 				title: "New Title",
-// 				desc: "New description",
-// 				countFontSize: "24px",
-// 				titleFontSize: "18px",
-// 				descFontSize: "16px",
-// 			},
-// 		];
-// 		setAttributes({ items: updated });
-// 	};
-
-// 	const removeItem = (index) => {
-// 		const updated = items.filter((_, i) => i !== index);
-// 		setAttributes({ items: updated });
-// 	};
-
-// 	const blockProps = useBlockProps({
-// 		className: "funfact-content",
-// 	});
-
-// 	return (
-// 		<div {...blockProps}>
-// 			<InspectorControls>
-// 				{activeIndex !== null && items[activeIndex] && (
-// 					<PanelBody title={__("Font Sizes", "funfact")} initialOpen={true}>
-// 						<RangeControl
-// 							label={__("Count Font Size (h2)", "funfact")}
-// 							min={12}
-// 							max={80}
-// 							value={parseInt(items[activeIndex].countFontSize, 10) || 24}
-// 							onChange={(val) =>
-// 								updateItem(activeIndex, "countFontSize", `${val}px`)
-// 							}
-// 						/>
-// 						<RangeControl
-// 							label={__("Title Font Size (h6)", "funfact")}
-// 							min={12}
-// 							max={60}
-// 							value={parseInt(items[activeIndex].titleFontSize, 10) || 18}
-// 							onChange={(val) =>
-// 								updateItem(activeIndex, "titleFontSize", `${val}px`)
-// 							}
-// 						/>
-// 						<RangeControl
-// 							label={__("Description Font Size (p)", "funfact")}
-// 							min={10}
-// 							max={50}
-// 							value={parseInt(items[activeIndex].descFontSize, 10) || 16}
-// 							onChange={(val) =>
-// 								updateItem(activeIndex, "descFontSize", `${val}px`)
-// 							}
-// 						/>
-// 					</PanelBody>
-// 				)}
-// 			</InspectorControls>
-// 			<div className="funfact-content__wapper">
-// 				{items.map((item, index) => (
-// 					<div
-// 						key={index}
-// 						className="funfact-content__item"
-// 						onClick={() => setActiveIndex(index)}
-// 						style={{
-// 							border:
-// 								activeIndex === index
-// 									? "2px solid #007cba"
-// 									: "1px solid transparent",
-// 							padding: "10px",
-// 							borderRadius: "6px",
-// 							marginBottom: "15px",
-// 							backgroundColor:
-// 								activeIndex === index ? "#f0f8ff" : "transparent",
-// 						}}
-// 					>
-// 						<RichText
-// 							tagName="h2"
-// 							className="counter"
-// 							value={item.count}
-// 							onChange={(val) => updateItem(index, "count", val)}
-// 							placeholder="0"
-// 							style={{
-// 								fontSize: item.countFontSize || "24px",
-// 							}}
-// 						/>
-
-// 						<RichText
-// 							tagName="h6"
-// 							className="funfact-content__item--title"
-// 							value={item.title}
-// 							onChange={(val) => updateItem(index, "title", val)}
-// 							placeholder="Enter title"
-// 							style={{
-// 								fontSize: item.titleFontSize || "18px",
-// 							}}
-// 						/>
-
-// 						<RichText
-// 							tagName="p"
-// 							className="funfact-content__item--desp"
-// 							value={item.desc}
-// 							onChange={(val) => updateItem(index, "desc", val)}
-// 							placeholder="Enter description"
-// 							style={{
-// 								fontSize: item.descFontSize || "16px",
-// 							}}
-// 						/>
-
-// 						<Button
-// 							isDestructive
-// 							onClick={() => removeItem(index)}
-// 							style={{ marginTop: "10px" }}
-// 						>
-// 							Remove
-// 						</Button>
-// 					</div>
-// 				))}
-// 			</div>
-
-// 			<Button
-// 				variant="primary"
-// 				onClick={addNewItem}
-// 				style={{ marginTop: "20px" }}
-// 			>
-// 				Add New
-// 			</Button>
-// 		</div>
-// 	);
-// }
+/* harmony import */ var _components_FunFactItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/FunFactItem */ "./src/funfact/components/FunFactItem.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
 
 
 
+
+const DEFAULT_ITEM = {
+  count: "0",
+  title: "New Title",
+  desc: "New description",
+  countFontSize: "24px",
+  titleFontSize: "18px",
+  descFontSize: "16px"
+};
 function Edit({
   attributes,
   setAttributes
@@ -253,7 +191,7 @@ function Edit({
     items
   } = attributes;
   const [activeIndex, setActiveIndex] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)(null);
-  const updateItem = (index, field, value) => {
+  const updateItem = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useCallback)((index, field, value) => {
     const updated = [...items];
     updated[index] = {
       ...updated[index],
@@ -262,18 +200,12 @@ function Edit({
     setAttributes({
       items: updated
     });
-  };
+  }, [items, setAttributes]);
   const addNewItem = () => {
-    const updated = [...items, {
-      count: 0,
-      title: "New Title",
-      desc: "New description",
-      countFontSize: "24px",
-      titleFontSize: "18px",
-      descFontSize: "16px"
-    }];
     setAttributes({
-      items: updated
+      items: [...items, {
+        ...DEFAULT_ITEM
+      }]
     });
   };
   const removeItem = index => {
@@ -288,68 +220,30 @@ function Edit({
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: "funfact-content"
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     ...blockProps,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      children: activeIndex !== null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_FontSizeSettings__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: activeIndex !== null && items[activeIndex] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_FontSizeSettings__WEBPACK_IMPORTED_MODULE_4__["default"], {
         activeItem: items[activeIndex],
         onChange: (field, value) => updateItem(activeIndex, field, value)
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "funfact-content__wapper",
-      children: items.map((item, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "funfact-content__item",
-        onClick: () => setActiveIndex(index),
-        style: {
-          border: activeIndex === index ? "2px solid #007cba" : "1px solid transparent",
-          padding: "10px",
-          borderRadius: "6px",
-          marginBottom: "15px",
-          backgroundColor: activeIndex === index ? "#f0f8ff" : "transparent"
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
-          tagName: "h2",
-          className: "counter",
-          value: item.count,
-          onChange: val => updateItem(index, "count", val),
-          placeholder: "0",
-          style: {
-            fontSize: item.countFontSize || "24px"
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
-          tagName: "h6",
-          className: "funfact-content__item--title",
-          value: item.title,
-          onChange: val => updateItem(index, "title", val),
-          placeholder: "Enter title",
-          style: {
-            fontSize: item.titleFontSize || "18px"
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
-          tagName: "p",
-          className: "funfact-content__item--desp",
-          value: item.desc,
-          onChange: val => updateItem(index, "desc", val),
-          placeholder: "Enter description",
-          style: {
-            fontSize: item.descFontSize || "16px"
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-          isDestructive: true,
-          onClick: () => removeItem(index),
-          style: {
-            marginTop: "10px"
-          },
-          children: "Remove"
-        })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "funfact-content__wrapper",
+      children: items.map((item, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_FunFactItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        item: item,
+        index: index,
+        isActive: activeIndex === index,
+        setActiveIndex: setActiveIndex,
+        updateItem: updateItem,
+        removeItem: removeItem
       }, index))
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
       variant: "primary",
       onClick: addNewItem,
       style: {
         marginTop: "20px"
       },
-      children: "Add New"
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add New", "your-textdomain")
     })]
   });
 }
@@ -422,7 +316,7 @@ function save({
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "funfact-content",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "funfact-content__wapper",
+        className: "funfact-content__wrapper",
         children: items.map((item, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "funfact-content__item",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
