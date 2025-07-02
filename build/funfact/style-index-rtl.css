@@ -6,12 +6,12 @@
 }
 .funfact-content__wapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
 }
 .funfact-content__item {
-  flex: 1 1 30%;
+  flex: 1 1 calc(25% - 70px);
   display: flex;
   flex-direction: column;
   align-items: center;

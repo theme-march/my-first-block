@@ -43,7 +43,9 @@ return array(
 						'count' => 0,
 						'title' => 'New Title',
 						'desc' => 'New description',
-						'fontSize' => '20px'
+						'countFontSize' => '24px',
+						'titleFontSize' => '18px',
+						'descFontSize' => '16px'
 					)
 				),
 				'items' => array(
@@ -56,6 +58,18 @@ return array(
 							'type' => 'string'
 						),
 						'desc' => array(
+							'type' => 'string'
+						),
+						'countFontSize' => array(
+							'type' => 'string'
+						),
+						'titleFontSize' => array(
+							'type' => 'string'
+						),
+						'descFontSize' => array(
+							'type' => 'string'
+						),
+						'backgroundImage' => array(
 							'type' => 'string'
 						)
 					)

@@ -3,13 +3,13 @@
 
 	&__wapper {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		flex-wrap: wrap;
 		gap: 30px;
 	}
 
 	&__item {
-		flex: 1 1 30%;
+		flex: 1 1 calc(25% - 70px);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -18,20 +18,17 @@
 		border-radius: 8px;
 
 		.counter {
-			font-size: 64px;
 			line-height: 100%;
 			margin: 5px;
 		}
 
 		&--title {
-			font-size: 24px;
 			line-height: 110%;
 			margin: 5px;
 		}
 
 		&--desp {
 			margin-top: 5px;
-			font-size: 16px;
 			margin: 5px;
 		}
 	}

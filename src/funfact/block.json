@@ -13,7 +13,9 @@
 					"count": 0,
 					"title": "New Title",
 					"desc": "New description",
-					"fontSize": "20px"
+					"countFontSize": "24px",
+					"titleFontSize": "18px",
+					"descFontSize": "16px"
 				}
 			],
 			"items": {
@@ -26,6 +28,18 @@
 						"type": "string"
 					},
 					"desc": {
+						"type": "string"
+					},
+					"countFontSize": {
+						"type": "string"
+					},
+					"titleFontSize": {
+						"type": "string"
+					},
+					"descFontSize": {
+						"type": "string"
+					},
+					"backgroundImage": {
 						"type": "string"
 					}
 				}
