@@ -103,6 +103,60 @@ return array(
 		'style' => 'file:./style-index.css',
 		'viewScript' => 'file:./view.js'
 	),
+	'gsap-title-animation' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'create-block/gsap-title-animation',
+		'version' => '0.1.0',
+		'title' => 'GSAP Title Animation',
+		'category' => 'akash',
+		'icon' => 'smiley',
+		'description' => 'A heading block with GSAP-powered animations on scroll.',
+		'textdomain' => 'gsap-title-animation',
+		'attributes' => array(
+			'content' => array(
+				'type' => 'string',
+				'source' => 'html',
+				'selector' => 'h2',
+				'default' => 'Hello GSAP Animated Heading'
+			),
+			'level' => array(
+				'type' => 'number',
+				'default' => 2
+			),
+			'offsetX' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'offsetY' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'duration' => array(
+				'type' => 'number',
+				'default' => 0.8
+			),
+			'delay' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'easing' => array(
+				'type' => 'string',
+				'default' => 'power2.out'
+			),
+			'alignment' => array(
+				'type' => 'string',
+				'default' => 'center'
+			)
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js'
+	),
 	'my-first-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,

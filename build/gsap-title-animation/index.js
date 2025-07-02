@@ -2,20 +2,20 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/my-first-block/block.json":
-/*!***************************************!*\
-  !*** ./src/my-first-block/block.json ***!
-  \***************************************/
+/***/ "./src/gsap-title-animation/block.json":
+/*!*********************************************!*\
+  !*** ./src/gsap-title-animation/block.json ***!
+  \*********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/my-first-block","version":"0.1.0","title":"My First Block","category":"akash","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"my-first-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/gsap-title-animation","version":"0.1.0","title":"GSAP Title Animation","category":"akash","icon":"smiley","description":"A heading block with GSAP-powered animations on scroll.","textdomain":"gsap-title-animation","attributes":{"content":{"type":"string","source":"html","selector":"h2","default":"Hello GSAP Animated Heading"},"level":{"type":"number","default":2},"offsetX":{"type":"number","default":0},"offsetY":{"type":"number","default":0},"duration":{"type":"number","default":0.8},"delay":{"type":"number","default":0},"easing":{"type":"string","default":"power2.out"},"alignment":{"type":"string","default":"center"}},"supports":{"html":false},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ }),
 
-/***/ "./src/my-first-block/edit.js":
-/*!************************************!*\
-  !*** ./src/my-first-block/edit.js ***!
-  \************************************/
+/***/ "./src/gsap-title-animation/edit.js":
+/*!******************************************!*\
+  !*** ./src/gsap-title-animation/edit.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -26,47 +26,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editor.scss */ "./src/my-first-block/editor.scss");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
-function Edit() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
-    children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("My First Block – hello from the editor!", "my-first-block")
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  const {
+    content,
+    level,
+    offsetX,
+    offsetY,
+    duration,
+    delay,
+    easing,
+    alignment
+  } = attributes;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Animation Settings", "gsap-title-animation"),
+        initialOpen: true,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+          label: "X Offset",
+          value: offsetX,
+          onChange: value => setAttributes({
+            offsetX: value
+          }),
+          min: -300,
+          max: 300
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+          label: "Y Offset",
+          value: offsetY,
+          onChange: value => setAttributes({
+            offsetY: value
+          }),
+          min: -300,
+          max: 300
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+          label: "Duration (sec)",
+          value: duration,
+          onChange: value => setAttributes({
+            duration: value
+          }),
+          min: 0.1,
+          max: 5,
+          step: 0.1
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+          label: "Delay (sec)",
+          value: delay,
+          onChange: value => setAttributes({
+            delay: value
+          }),
+          min: 0,
+          max: 5,
+          step: 0.1
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+          label: "Easing Function",
+          value: easing,
+          options: [{
+            label: "Power2 Out",
+            value: "power2.out"
+          }, {
+            label: "Power1 InOut",
+            value: "power1.inOut"
+          }, {
+            label: "Linear",
+            value: "linear"
+          }, {
+            label: "Back Out",
+            value: "back.out(1.7)"
+          }, {
+            label: "Elastic Out",
+            value: "elastic.out(1, 0.3)"
+          }],
+          onChange: value => setAttributes({
+            easing: value
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+          label: "Text Alignment",
+          value: alignment,
+          options: [{
+            label: "Left",
+            value: "left"
+          }, {
+            label: "Center",
+            value: "center"
+          }, {
+            label: "Right",
+            value: "right"
+          }],
+          onChange: value => setAttributes({
+            alignment: value
+          })
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
+      tagName: `h${level}`,
+      value: content,
+      onChange: value => setAttributes({
+        content: value
+      }),
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Write heading...", "gsap-title-animation"),
+      className: "gsap-title-animation",
+      "data-x": offsetX,
+      "data-y": offsetY,
+      "data-duration": duration,
+      "data-delay": delay,
+      "data-easing": easing,
+      "data-alignment": alignment,
+      style: {
+        textAlign: alignment
+      }
+    })]
   });
 }
 
 /***/ }),
 
-/***/ "./src/my-first-block/editor.scss":
-/*!****************************************!*\
-  !*** ./src/my-first-block/editor.scss ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/my-first-block/index.js":
-/*!*************************************!*\
-  !*** ./src/my-first-block/index.js ***!
-  \*************************************/
+/***/ "./src/gsap-title-animation/index.js":
+/*!*******************************************!*\
+  !*** ./src/gsap-title-animation/index.js ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/my-first-block/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/my-first-block/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/my-first-block/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/my-first-block/block.json");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/gsap-title-animation/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/gsap-title-animation/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/gsap-title-animation/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/gsap-title-animation/block.json");
 
 
 
@@ -85,10 +182,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/my-first-block/save.js":
-/*!************************************!*\
-  !*** ./src/my-first-block/save.js ***!
-  \************************************/
+/***/ "./src/gsap-title-animation/save.js":
+/*!******************************************!*\
+  !*** ./src/gsap-title-animation/save.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -101,19 +198,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function save() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+function save({
+  attributes
+}) {
+  const {
+    content,
+    level,
+    offsetX,
+    offsetY,
+    duration,
+    delay,
+    easing,
+    alignment
+  } = attributes;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
-    children: "My First Block – hello from the saved content!"
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "gsap-title-animation-wrapper",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
+        tagName: `h${level}`,
+        value: content,
+        className: "gsap-title-animation",
+        "data-x": offsetX,
+        "data-y": offsetY,
+        "data-duration": duration,
+        "data-delay": delay,
+        "data-easing": easing,
+        style: {
+          textAlign: alignment
+        }
+      })
+    })
   });
 }
 
 /***/ }),
 
-/***/ "./src/my-first-block/style.scss":
-/*!***************************************!*\
-  !*** ./src/my-first-block/style.scss ***!
-  \***************************************/
+/***/ "./src/gsap-title-animation/style.scss":
+/*!*********************************************!*\
+  !*** ./src/gsap-title-animation/style.scss ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -139,6 +263,16 @@ module.exports = window["wp"]["blockEditor"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
 
 /***/ }),
 
@@ -272,8 +406,8 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"my-first-block/index": 0,
-/******/ 			"my-first-block/style-index": 0
+/******/ 			"gsap-title-animation/index": 0,
+/******/ 			"gsap-title-animation/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -323,7 +457,7 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["my-first-block/style-index"], () => (__webpack_require__("./src/my-first-block/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["gsap-title-animation/style-index"], () => (__webpack_require__("./src/gsap-title-animation/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
