@@ -23,6 +23,18 @@ export default function save({ attributes }) {
 		fontSize,
 	} = attributes;
 
+	const defaultFontSizes = {
+		1: 64,
+		2: 48,
+		3: 36,
+		4: 30,
+		5: 24,
+		6: 20,
+	};
+	const appliedFontSize = fontSize
+		? parseInt(fontSize)
+		: defaultFontSizes[level];
+
 	const tagName = `h${level}`;
 	return (
 		<div className="gsap-title-animation-wrapper">
@@ -32,7 +44,7 @@ export default function save({ attributes }) {
 						position: position,
 						textAlign: alignment,
 						fontWeight: fontWeight,
-						fontSize: `${fontSize}px`,
+						fontSize: `${appliedFontSize}px`,
 						padding: `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`,
 						margin: `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px`,
 					},

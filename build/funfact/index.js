@@ -44,19 +44,25 @@ function FontSizeSettings({
       min: 12,
       max: 80,
       value: parseInt(activeItem.countFontSize, 10) || 24,
-      onChange: val => onChange("countFontSize", `${val}px`)
+      onChange: val => onChange("countFontSize", `${val}px`),
+      __nextHasNoMarginBottom: true,
+      __next40pxDefaultSize: true
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RangeControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title Font Size (h6)", "funfact"),
       min: 12,
       max: 60,
       value: parseInt(activeItem.titleFontSize, 10) || 18,
-      onChange: val => onChange("titleFontSize", `${val}px`)
+      onChange: val => onChange("titleFontSize", `${val}px`),
+      __nextHasNoMarginBottom: true,
+      __next40pxDefaultSize: true
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RangeControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Description Font Size (p)", "funfact"),
       min: 10,
       max: 50,
       value: parseInt(activeItem.descFontSize, 10) || 16,
-      onChange: val => onChange("descFontSize", `${val}px`)
+      onChange: val => onChange("descFontSize", `${val}px`),
+      __nextHasNoMarginBottom: true,
+      __next40pxDefaultSize: true
     })]
   });
 }
