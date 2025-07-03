@@ -10,13 +10,28 @@ export default function save({ attributes }) {
 		delay,
 		easing,
 		alignment,
+		paddingX,
+		paddingY,
+		marginX,
+		marginY,
+		fontWeight,
+		position,
 	} = attributes;
-
+	const tagName = `h${level}`;
 	return (
-		<div {...useBlockProps.save()}>
+		<div
+			{...useBlockProps.save({
+				style: {
+					padding: `${paddingY}px ${paddingX}px`,
+					margin: `${marginY}px ${marginX}px`,
+					position: position,
+					transition: "all 0.3s ease-in-out",
+				},
+			})}
+		>
 			<div className="gsap-title-animation-wrapper">
 				<RichText.Content
-					tagName={`h${level}`}
+					tagName={tagName}
 					value={content}
 					className="gsap-title-animation"
 					data-x={offsetX}
@@ -24,7 +39,10 @@ export default function save({ attributes }) {
 					data-duration={duration}
 					data-delay={delay}
 					data-easing={easing}
-					style={{ textAlign: alignment }}
+					style={{
+						textAlign: alignment,
+						fontWeight: fontWeight,
+					}}
 				/>
 			</div>
 		</div>

@@ -117,7 +117,7 @@ return array(
 			'content' => array(
 				'type' => 'string',
 				'source' => 'html',
-				'selector' => 'h2',
+				'selector' => 'h1,h2,h3,h4,h5,h6',
 				'default' => 'Hello GSAP Animated Heading'
 			),
 			'level' => array(
@@ -147,10 +147,62 @@ return array(
 			'alignment' => array(
 				'type' => 'string',
 				'default' => 'center'
+			),
+			'paddingTop' => array(
+				'type' => 'number',
+				'default' => 10
+			),
+			'paddingRight' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'paddingBottom' => array(
+				'type' => 'number',
+				'default' => 10
+			),
+			'paddingLeft' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'marginTop' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'marginRight' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'marginBottom' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'marginLeft' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'fontWeight' => array(
+				'type' => 'string',
+				'default' => '600'
+			),
+			'fontSize' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'position' => array(
+				'type' => 'string',
+				'default' => 'relative'
 			)
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'headingLevels' => array(
+				1,
+				2,
+				3,
+				4,
+				5,
+				6
+			)
 		),
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',

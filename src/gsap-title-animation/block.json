@@ -12,7 +12,7 @@
 		"content": {
 			"type": "string",
 			"source": "html",
-			"selector": "h2",
+			"selector": "h1,h2,h3,h4,h5,h6",
 			"default": "Hello GSAP Animated Heading"
 		},
 		"level": {
@@ -42,10 +42,62 @@
 		"alignment": {
 			"type": "string",
 			"default": "center"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 10
+		},
+		"paddingRight": {
+			"type": "number",
+			"default": 0
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 10
+		},
+		"paddingLeft": {
+			"type": "number",
+			"default": 0
+		},
+		"marginTop": {
+			"type": "number",
+			"default": 0
+		},
+		"marginRight": {
+			"type": "number",
+			"default": 0
+		},
+		"marginBottom": {
+			"type": "number",
+			"default": 0
+		},
+		"marginLeft": {
+			"type": "number",
+			"default": 0
+		},
+		"fontWeight": {
+			"type": "string",
+			"default": "600"
+		},
+		"fontSize": {
+			"type": "string",
+			"default": ""
+		},
+		"position": {
+			"type": "string",
+			"default": "relative"
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"headingLevels": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		]
 	},
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

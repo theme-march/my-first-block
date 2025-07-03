@@ -140,6 +140,10 @@ function my_counter_handle_request( WP_REST_Request $request ) {
 }
 
 
+function enqueue_block_editor_styles() {
+	wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' );
+}
+add_action( 'enqueue_block_editor_assets', 'enqueue_block_editor_styles' );
 
 
 
