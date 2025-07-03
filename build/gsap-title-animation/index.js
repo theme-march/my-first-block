@@ -8,7 +8,7 @@
   \*********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/gsap-title-animation","version":"0.1.0","title":"GSAP Title Animation","category":"akash","icon":"smiley","description":"A heading block with GSAP-powered animations on scroll.","textdomain":"gsap-title-animation","attributes":{"content":{"type":"string","source":"html","selector":"h1,h2,h3,h4,h5,h6","default":"Hello GSAP Animated Heading"},"level":{"type":"number","default":2},"offsetX":{"type":"number","default":0},"offsetY":{"type":"number","default":0},"duration":{"type":"number","default":0.8},"delay":{"type":"number","default":0},"easing":{"type":"string","default":"power2.out"},"alignment":{"type":"string","default":"center"},"paddingTop":{"type":"number","default":10},"paddingRight":{"type":"number","default":0},"paddingBottom":{"type":"number","default":10},"paddingLeft":{"type":"number","default":0},"marginTop":{"type":"number","default":0},"marginRight":{"type":"number","default":0},"marginBottom":{"type":"number","default":0},"marginLeft":{"type":"number","default":0},"fontWeight":{"type":"string","default":"600"},"fontSize":{"type":"string","default":""},"position":{"type":"string","default":"relative"}},"supports":{"html":false,"headingLevels":[1,2,3,4,5,6]},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/gsap-title-animation","version":"0.1.0","title":"GSAP Title Animation","category":"akash","icon":"smiley","description":"A heading block with GSAP-powered animations on scroll.","textdomain":"gsap-title-animation","attributes":{"content":{"type":"string","source":"html","selector":"h1,h2,h3,h4,h5,h6","default":"Hello GSAP Animated Heading"},"level":{"type":"number","default":2},"offsetX":{"type":"number","default":0},"offsetY":{"type":"number","default":0},"duration":{"type":"number","default":0.8},"delay":{"type":"number","default":0},"easing":{"type":"string","default":"power2.out"},"alignment":{"type":"string","default":"center"},"paddingTop":{"type":"number","default":10},"paddingRight":{"type":"number","default":0},"paddingBottom":{"type":"number","default":10},"paddingLeft":{"type":"number","default":0},"marginTop":{"type":"number","default":0},"marginRight":{"type":"number","default":0},"marginBottom":{"type":"number","default":0},"marginLeft":{"type":"number","default":0},"fontWeight":{"type":"string","default":"600"},"fontSize":{"type":"string","default":""},"position":{"type":"string","default":"relative"}},"supports":{"html":false,"headingLevels":[1,2,3,4,5,6],"align":true,"color":{"background":true,"text":true}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -32,215 +32,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
-// // import { __ } from "@wordpress/i18n";
-// // import {
-// // 	useBlockProps,
-// // 	RichText,
-// // 	InspectorControls,
-// // 	BlockControls,
-// // } from "@wordpress/block-editor";
-// // import {
-// // 	PanelBody,
-// // 	SelectControl,
-// // 	RangeControl,
-// // 	ToolbarGroup,
-// // 	ToolbarButton,
-// // } from "@wordpress/components";
-
-// // import { Fragment } from "@wordpress/element";
-
-// // export default function Edit({ attributes, setAttributes }) {
-// // 	const {
-// // 		content,
-// // 		level,
-// // 		offsetX,
-// // 		offsetY,
-// // 		duration,
-// // 		delay,
-// // 		easing,
-// // 		alignment,
-// // 		paddingX,
-// // 		paddingY,
-// // 		marginX,
-// // 		marginY,
-// // 		fontWeight,
-// // 		fontSize,
-// // 		position,
-// // 	} = attributes;
-
-// // 	const blockProps = useBlockProps({
-// // 		style: {
-// // 			textAlign: alignment,
-// // 			padding: `${paddingY}px ${paddingX}px`,
-// // 			margin: `${marginY}px ${marginX}px`,
-// // 			fontWeight: fontWeight,
-// // 			fontSize: `${fontSize}px`,
-// // 			position: position,
-// // 			transition: "all 0.3s ease-in-out",
-// // 		},
-// // 	});
-
-// // 	const tagName = `h${level}`;
-
-// // 	return (
-// // 		<Fragment>
-// // 			{/* 🔽 Toolbar: H1-H6 Dropdown */}
-// // 			<BlockControls>
-// // 				<ToolbarGroup label={__("Heading Level", "gsap-title-animation")}>
-// // 					{[1, 2, 3, 4, 5, 6].map((num) => (
-// // 						<ToolbarButton
-// // 							key={num}
-// // 							isPressed={level === num}
-// // 							label={`H${num}`}
-// // 							onClick={() => setAttributes({ level: num })}
-// // 							showTooltip
-// // 						>
-// // 							H{num}
-// // 						</ToolbarButton>
-// // 					))}
-// // 				</ToolbarGroup>
-// // 			</BlockControls>
-
-// // 			{/* 🎛️ Sidebar Controls */}
-// // 			<InspectorControls>
-// // 				{/* 🎯 Animation Settings */}
-// // 				<PanelBody title="🎯 Animation Settings" initialOpen={true}>
-// // 					<RangeControl
-// // 						label="Translate X"
-// // 						value={offsetX}
-// // 						onChange={(value) => setAttributes({ offsetX: value })}
-// // 						min={-300}
-// // 						max={300}
-// // 					/>
-// // 					<RangeControl
-// // 						label="Translate Y"
-// // 						value={offsetY}
-// // 						onChange={(value) => setAttributes({ offsetY: value })}
-// // 						min={-300}
-// // 						max={300}
-// // 					/>
-// // 					<RangeControl
-// // 						label="Duration (sec)"
-// // 						value={duration}
-// // 						onChange={(value) => setAttributes({ duration: value })}
-// // 						min={0.1}
-// // 						max={5}
-// // 						step={0.1}
-// // 					/>
-// // 					<RangeControl
-// // 						label="Delay (sec)"
-// // 						value={delay}
-// // 						onChange={(value) => setAttributes({ delay: value })}
-// // 						min={0}
-// // 						max={5}
-// // 						step={0.1}
-// // 					/>
-// // 					<SelectControl
-// // 						label="Easing"
-// // 						value={easing}
-// // 						onChange={(value) => setAttributes({ easing: value })}
-// // 						options={[
-// // 							{ label: "Power2 Out", value: "power2.out" },
-// // 							{ label: "Power1 InOut", value: "power1.inOut" },
-// // 							{ label: "Linear", value: "linear" },
-// // 							{ label: "Back Out", value: "back.out(1.7)" },
-// // 							{ label: "Elastic Out", value: "elastic.out(1, 0.3)" },
-// // 						]}
-// // 					/>
-// // 				</PanelBody>
-
-// // 				{/* 🎨 Style Settings */}
-// // 				<PanelBody title="🎨 Style Settings" initialOpen={false}>
-// // 					<SelectControl
-// // 						label="Text Align"
-// // 						value={alignment}
-// // 						onChange={(value) => setAttributes({ alignment: value })}
-// // 						options={[
-// // 							{ label: "Left", value: "left" },
-// // 							{ label: "Center", value: "center" },
-// // 							{ label: "Right", value: "right" },
-// // 						]}
-// // 					/>
-// // 					<RangeControl
-// // 						label="Padding X"
-// // 						value={paddingX}
-// // 						onChange={(value) => setAttributes({ paddingX: value })}
-// // 						min={0}
-// // 						max={100}
-// // 					/>
-// // 					<RangeControl
-// // 						label="Padding Y"
-// // 						value={paddingY}
-// // 						onChange={(value) => setAttributes({ paddingY: value })}
-// // 						min={0}
-// // 						max={100}
-// // 					/>
-// // 					<RangeControl
-// // 						label="Margin X"
-// // 						value={marginX}
-// // 						onChange={(value) => setAttributes({ marginX: value })}
-// // 						min={0}
-// // 						max={100}
-// // 					/>
-// // 					<RangeControl
-// // 						label="Margin Y"
-// // 						value={marginY}
-// // 						onChange={(value) => setAttributes({ marginY: value })}
-// // 						min={0}
-// // 						max={100}
-// // 					/>
-// // 					<RangeControl
-// // 						label="Font Size"
-// // 						value={parseInt(fontSize)}
-// // 						onChange={(value) => setAttributes({ fontSize: `${value}` })}
-// // 						min={10}
-// // 						max={200}
-// // 					/>
-
-// // 					<SelectControl
-// // 						label="Font Weight"
-// // 						value={fontWeight}
-// // 						onChange={(value) => setAttributes({ fontWeight: value })}
-// // 						options={[
-// // 							{ label: "Normal (400)", value: "400" },
-// // 							{ label: "Medium (500)", value: "500" },
-// // 							{ label: "Semi Bold (600)", value: "600" },
-// // 							{ label: "Bold (700)", value: "700" },
-// // 							{ label: "Extra Bold (800)", value: "800" },
-// // 						]}
-// // 					/>
-// // 					<SelectControl
-// // 						label="Position"
-// // 						value={position}
-// // 						onChange={(value) => setAttributes({ position: value })}
-// // 						options={[
-// // 							{ label: "Relative", value: "relative" },
-// // 							{ label: "Static", value: "static" },
-// // 							{ label: "Absolute", value: "absolute" },
-// // 							{ label: "Fixed", value: "fixed" },
-// // 						]}
-// // 					/>
-// // 				</PanelBody>
-// // 			</InspectorControls>
-
-// // 			{/* 📝 RichText Heading */}
-// // 			<RichText
-// // 				{...blockProps}
-// // 				tagName={tagName}
-// // 				value={content}
-// // 				onChange={(value) => setAttributes({ content: value })}
-// // 				placeholder={__("📝 Write heading...", "gsap-title-animation")}
-// // 				className="gsap-title-animation m-5"
-// // 				data-x={offsetX}
-// // 				data-y={offsetY}
-// // 				data-duration={duration}
-// // 				data-delay={delay}
-// // 				data-easing={easing}
-// // 			/>
-// // 		</Fragment>
-// // 	);
-// // }
-
 
 
 
@@ -250,6 +41,7 @@ function Edit({
   attributes,
   setAttributes
 }) {
+  const [activePanel, setActivePanel] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)("animation");
   const {
     content,
     level,
@@ -284,13 +76,13 @@ function Edit({
   const appliedFontSize = fontSize ? parseInt(fontSize) : defaultFontSizes[level];
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     style: {
-      textAlign: alignment,
-      fontWeight,
       position,
+      transition: "all 0.3s ease-in-out",
+      textAlign: alignment,
+      fontWeight: fontWeight,
       fontSize: `${appliedFontSize}px`,
       padding: `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`,
-      margin: `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px`,
-      transition: "all 0.3s ease-in-out"
+      margin: `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px`
     }
   });
   const tagName = `h${level}`;
@@ -311,7 +103,8 @@ function Edit({
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
         title: "\uD83C\uDFAF Animation Settings",
-        initialOpen: true,
+        initialOpen: activePanel === "animation",
+        onToggle: () => setActivePanel(activePanel === "animation" ? "" : "animation"),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
           label: "Translate X",
           value: offsetX,
@@ -371,7 +164,8 @@ function Edit({
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
         title: "\uD83C\uDFA8 Style Settings",
-        initialOpen: false,
+        initialOpen: activePanel === "style",
+        onToggle: () => setActivePanel(activePanel === "style" ? "" : "style"),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
           label: "Text Align",
           value: alignment,
@@ -405,7 +199,53 @@ function Edit({
             marginBottom: "1rem"
           },
           children: "Reset Font Size to Default"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+          label: "Font Weight",
+          value: fontWeight,
+          onChange: value => setAttributes({
+            fontWeight: value
+          }),
+          options: [{
+            label: "Normal (400)",
+            value: "400"
+          }, {
+            label: "Medium (500)",
+            value: "500"
+          }, {
+            label: "Semi Bold (600)",
+            value: "600"
+          }, {
+            label: "Bold (700)",
+            value: "700"
+          }, {
+            label: "Extra Bold (800)",
+            value: "800"
+          }]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+          label: "Position",
+          value: position,
+          onChange: value => setAttributes({
+            position: value
+          }),
+          options: [{
+            label: "Relative",
+            value: "relative"
+          }, {
+            label: "Static",
+            value: "static"
+          }, {
+            label: "Absolute",
+            value: "absolute"
+          }, {
+            label: "Fixed",
+            value: "fixed"
+          }]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        title: "\uD83C\uDFA8 Spacing Settings",
+        initialOpen: activePanel === "spacing",
+        onToggle: () => setActivePanel(activePanel === "spacing" ? "" : "spacing"),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
           label: "Padding Top",
           value: paddingTop,
           onChange: value => setAttributes({
@@ -469,47 +309,6 @@ function Edit({
           }),
           min: 0,
           max: 500
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-          label: "Font Weight",
-          value: fontWeight,
-          onChange: value => setAttributes({
-            fontWeight: value
-          }),
-          options: [{
-            label: "Normal (400)",
-            value: "400"
-          }, {
-            label: "Medium (500)",
-            value: "500"
-          }, {
-            label: "Semi Bold (600)",
-            value: "600"
-          }, {
-            label: "Bold (700)",
-            value: "700"
-          }, {
-            label: "Extra Bold (800)",
-            value: "800"
-          }]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-          label: "Position",
-          value: position,
-          onChange: value => setAttributes({
-            position: value
-          }),
-          options: [{
-            label: "Relative",
-            value: "relative"
-          }, {
-            label: "Static",
-            value: "static"
-          }, {
-            label: "Absolute",
-            value: "absolute"
-          }, {
-            label: "Fixed",
-            value: "fixed"
-          }]
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
@@ -520,12 +319,7 @@ function Edit({
         content: value
       }),
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("📝 Write heading...", "gsap-title-animation"),
-      className: "gsap-title-animation",
-      "data-x": offsetX,
-      "data-y": offsetY,
-      "data-duration": duration,
-      "data-delay": delay,
-      "data-easing": easing
+      className: "gsap-title-animation"
     })]
   });
 }
@@ -591,39 +385,40 @@ function save({
     delay,
     easing,
     alignment,
-    paddingX,
-    paddingY,
-    marginX,
-    marginY,
     fontWeight,
-    position
+    position,
+    paddingTop,
+    paddingRight,
+    paddingBottom,
+    paddingLeft,
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
+    fontSize
   } = attributes;
   const tagName = `h${level}`;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-      style: {
-        padding: `${paddingY}px ${paddingX}px`,
-        margin: `${marginY}px ${marginX}px`,
-        position: position,
-        transition: "all 0.3s ease-in-out"
-      }
-    }),
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "gsap-title-animation-wrapper",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
-        tagName: tagName,
-        value: content,
-        className: "gsap-title-animation",
-        "data-x": offsetX,
-        "data-y": offsetY,
-        "data-duration": duration,
-        "data-delay": delay,
-        "data-easing": easing,
+    className: "gsap-title-animation-wrapper",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
+      ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
         style: {
+          position: position,
           textAlign: alignment,
-          fontWeight: fontWeight
+          fontWeight: fontWeight,
+          fontSize: `${fontSize}px`,
+          padding: `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`,
+          margin: `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px`
         }
-      })
+      }),
+      tagName: tagName,
+      value: content,
+      className: "gsap-title-animation",
+      "data-x": offsetX,
+      "data-y": offsetY,
+      "data-duration": duration,
+      "data-delay": delay,
+      "data-easing": easing
     })
   });
 }

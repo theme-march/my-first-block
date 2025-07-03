@@ -9825,7 +9825,8 @@ const animateElement = el => {
       trigger: el,
       start: "top 90%",
       toggleActions: "play none none none",
-      once: true
+      once: true,
+      markers: true
     }
   });
 };

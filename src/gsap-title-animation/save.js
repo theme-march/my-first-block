@@ -10,41 +10,42 @@ export default function save({ attributes }) {
 		delay,
 		easing,
 		alignment,
-		paddingX,
-		paddingY,
-		marginX,
-		marginY,
 		fontWeight,
 		position,
+		paddingTop,
+		paddingRight,
+		paddingBottom,
+		paddingLeft,
+		marginTop,
+		marginRight,
+		marginBottom,
+		marginLeft,
+		fontSize,
 	} = attributes;
+
 	const tagName = `h${level}`;
 	return (
-		<div
-			{...useBlockProps.save({
-				style: {
-					padding: `${paddingY}px ${paddingX}px`,
-					margin: `${marginY}px ${marginX}px`,
-					position: position,
-					transition: "all 0.3s ease-in-out",
-				},
-			})}
-		>
-			<div className="gsap-title-animation-wrapper">
-				<RichText.Content
-					tagName={tagName}
-					value={content}
-					className="gsap-title-animation"
-					data-x={offsetX}
-					data-y={offsetY}
-					data-duration={duration}
-					data-delay={delay}
-					data-easing={easing}
-					style={{
+		<div className="gsap-title-animation-wrapper">
+			<RichText.Content
+				{...useBlockProps.save({
+					style: {
+						position: position,
 						textAlign: alignment,
 						fontWeight: fontWeight,
-					}}
-				/>
-			</div>
+						fontSize: `${fontSize}px`,
+						padding: `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`,
+						margin: `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px`,
+					},
+				})}
+				tagName={tagName}
+				value={content}
+				className="gsap-title-animation"
+				data-x={offsetX}
+				data-y={offsetY}
+				data-duration={duration}
+				data-delay={delay}
+				data-easing={easing}
+			/>
 		</div>
 	);
 }

@@ -9,9 +9,10 @@
 .gsap-title-animation-wrapper {
 	display: block;
 	overflow: hidden;
-	width: 100%;
+	width: inherit;
 }
 .gsap-title-animation {
 	will-change: transform, opacity;
+	min-width: unset;
 	width: 100%;
 }

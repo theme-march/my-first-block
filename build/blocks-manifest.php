@@ -202,6 +202,11 @@ return array(
 				4,
 				5,
 				6
+			),
+			'align' => true,
+			'color' => array(
+				'background' => true,
+				'text' => true
 			)
 		),
 		'editorScript' => 'file:./index.js',

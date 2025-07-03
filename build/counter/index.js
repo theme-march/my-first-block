@@ -38,24 +38,20 @@ function Edit({
   const {
     count = 0
   } = attributes;
-
-  // Initial load from REST API → Set in block attribute
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     fetch("/my-site/wordpress/wp-json/my-counter/v1/count").then(res => res.json()).then(data => {
-      if (data.count !== undefined) {
+      if (typeof data === "object" && data !== null && typeof data.count === "number") {
         setAttributes({
           count: data.count
         });
       }
-    });
+    }).catch(err => console.error("Fetch count failed", err));
   }, []);
   const increase = () => {
     const newCount = count + 1;
     setAttributes({
       count: newCount
     });
-
-    // Send to API
     fetch("/my-site/wordpress/wp-json/my-counter/v1/count", {
       method: "POST",
       headers: {
@@ -64,7 +60,7 @@ function Edit({
       body: JSON.stringify({
         count: newCount
       })
-    });
+    }).catch(err => console.error("Update count failed", err));
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)(),

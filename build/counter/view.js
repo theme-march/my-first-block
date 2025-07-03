@@ -151,14 +151,23 @@ __webpack_require__.r(__webpack_exports__);
 function CounterFrontend() {
   const [count, setCount] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
 
-  // Load count on mount
+  // Load count on first mount
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    fetch("/my-site/wordpress/wp-json/my-counter/v1/count").then(res => res.json()).then(data => setCount(data.count));
+    fetch("/my-site/wordpress/wp-json/my-counter/v1/count").then(res => res.json()).then(data => {
+      if (typeof data?.count === "number") {
+        setCount(data.count);
+      } else {
+        console.warn("Invalid count data from API:", data);
+      }
+    }).catch(err => {
+      console.error("Failed to fetch count from API:", err);
+    });
   }, []);
-  console.log(count);
   const increase = () => {
     const newCount = count + 1;
     setCount(newCount);
+
+    // Send updated count to API
     fetch("/my-site/wordpress/wp-json/my-counter/v1/count", {
       method: "POST",
       headers: {
@@ -167,27 +176,37 @@ function CounterFrontend() {
       body: JSON.stringify({
         count: newCount
       })
-    });
+    }).catch(err => console.error("Failed to POST new count to API:", err));
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "bg-blue-100 p-4 rounded",
+    className: "wp-block-create-block-counter bg-blue-100 p-4 rounded",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
       className: "text-xl font-bold mb-2",
       children: "Frontend Counter"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
       children: ["Current Count: ", count]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-      className: "bg-blue-600 text-white px-3 py-1 mt-2 rounded",
       onClick: increase,
+      className: "bg-blue-600 text-white px-3 py-1 mt-2 rounded",
       children: "Increase"
     })]
   });
 }
+
+// Wait for DOM and render into each .wp-block-create-block-counter
 document.addEventListener("DOMContentLoaded", () => {
   const containers = document.querySelectorAll(".wp-block-create-block-counter");
+  if (!containers || containers.length === 0) {
+    console.warn("No .wp-block-create-block-counter elements found.");
+    return;
+  }
   containers.forEach(container => {
-    const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
-    root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CounterFrontend, {}));
+    try {
+      const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
+      root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CounterFrontend, {}));
+    } catch (error) {
+      console.error("React render failed for counter block:", error);
+    }
   });
 });
 })();
