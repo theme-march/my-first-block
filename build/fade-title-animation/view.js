@@ -9728,7 +9728,7 @@ var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
 /*!******************************************!*\
-  !*** ./src/gsap-title-animation/view.js ***!
+  !*** ./src/fade-title-animation/view.js ***!
   \******************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");

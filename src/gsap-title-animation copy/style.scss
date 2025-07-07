@@ -1,0 +1,18 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+/* index.css or style-index.css */
+.gsap-title-animation-wrapper {
+	display: block;
+	overflow: hidden;
+	width: inherit;
+}
+.gsap-title-animation {
+	will-change: transform, opacity;
+	min-width: unset;
+	width: 100%;
+}

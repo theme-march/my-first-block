@@ -1,19 +1,19 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/gsap-title-animation",
+	"name": "create-block/fade-title-animation",
 	"version": "0.1.0",
-	"title": "GSAP Title Animation",
+	"title": "Fade Title Animation",
 	"category": "akash",
 	"icon": "smiley",
 	"description": "A heading block with GSAP-powered animations on scroll.",
-	"textdomain": "gsap-title-animation",
+	"textdomain": "fade-title-animation",
 	"attributes": {
 		"content": {
 			"type": "string",
 			"source": "html",
 			"selector": "h1,h2,h3,h4,h5,h6",
-			"default": "Hello GSAP Animated Heading"
+			"default": "Hello Fade Animated Heading"
 		},
 		"level": {
 			"type": "number",
@@ -102,6 +102,11 @@
 		"color": {
 			"background": true,
 			"text": true
+		}
+	},
+	"example": {
+		"attributes": {
+			"level": 2
 		}
 	},
 	"editorScript": "file:./index.js",
