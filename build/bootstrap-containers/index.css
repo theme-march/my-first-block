@@ -1,7 +1,6 @@
 /*!*************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/bootstrap-containers/editor.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************/
-@charset "UTF-8";
 /**
  * The following styles get applied inside the editor only.
  *
@@ -29,7 +28,7 @@
   box-sizing: border-box;
 }
 
-.custom-bootstrap-inner {
+.custom-bootstrap-container-inner {
   flex: 1 1 auto;
   width: 100%;
   min-height: 100%;
@@ -37,13 +36,8 @@
   background-color: #ffffff;
   padding: 10px;
 }
-
-.block-list-appender.wp-block {
-  position: relative !important;
-  margin-top: 10px !important;
-  margin-left: auto !important; /* ✅ এটিই ডান পাশে নেবে */
-  max-width: 40px;
-  max-height: 40px;
+.custom-bootstrap-container-inner .block-editor-block-list__layout {
+  position: unset;
 }
 
 /*# sourceMappingURL=index.css.map*/

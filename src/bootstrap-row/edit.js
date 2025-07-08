@@ -1,17 +1,13 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
-
+import "./editor.scss";
 export default function Edit() {
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({ className: "row" });
 
 	return (
-		<div {...blockProps} className="row">
-			<InnerBlocks
-				allowedBlocks={["create-block/bootstrap-col"]}
-				template={[
-					["create-block/bootstrap-col"],
-					["create-block/bootstrap-col"],
-				]}
-			/>
+		<div {...blockProps}>
+			<div className="custom-bootstrap-row-inner">
+				<InnerBlocks templateLock={false} />
+			</div>
 		</div>
 	);
 }

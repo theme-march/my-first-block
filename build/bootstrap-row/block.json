@@ -1,11 +1,11 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "create-block/bootstrap-row",
+  "name": "create-block/row",
   "version": "0.1.0",
   "title": "bootstrap-row",
   "category": "akash",
-  "icon": "columns",
+  "icon": "layout",
   "description": "A heading block with GSAP-powered animations on scroll.",
   "textdomain": "gsap-title-animation",
   "supports": {

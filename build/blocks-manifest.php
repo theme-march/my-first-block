@@ -4,12 +4,12 @@ return array(
 	'bootstrap-col' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'create-block/bootstrap-col',
+		'name' => 'create-block/col',
 		'version' => '0.1.0',
-		'title' => 'bootstrap-col',
+		'title' => 'Bootstrap Column',
 		'category' => 'akash',
-		'icon' => 'smiley',
-		'description' => 'A heading block with GSAP-powered animations on scroll.',
+		'icon' => 'columns',
+		'description' => 'Bootstrap column block',
 		'textdomain' => 'gsap-title-animation',
 		'attributes' => array(
 			'colClass' => array(
@@ -52,37 +52,13 @@ return array(
 	'bootstrap-row' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'create-block/bootstrap-row',
+		'name' => 'create-block/row',
 		'version' => '0.1.0',
 		'title' => 'bootstrap-row',
 		'category' => 'akash',
-		'icon' => 'columns',
+		'icon' => 'layout',
 		'description' => 'A heading block with GSAP-powered animations on scroll.',
 		'textdomain' => 'gsap-title-animation',
-		'supports' => array(
-			'html' => false
-		),
-		'editorScript' => 'file:./index.js',
-		'editorStyle' => 'file:./index.css',
-		'style' => 'file:./style-index.css',
-		'viewScript' => 'file:./view.js'
-	),
-	'bootstrap-row copy' => array(
-		'$schema' => 'https://schemas.wp.org/trunk/block.json',
-		'apiVersion' => 3,
-		'name' => 'create-block/bootstrap-col',
-		'version' => '0.1.0',
-		'title' => 'bootstrap-col',
-		'category' => 'akash',
-		'icon' => 'smiley',
-		'description' => 'A heading block with GSAP-powered animations on scroll.',
-		'textdomain' => 'gsap-title-animation',
-		'attributes' => array(
-			'colClass' => array(
-				'type' => 'string',
-				'default' => 'col'
-			)
-		),
 		'supports' => array(
 			'html' => false
 		),

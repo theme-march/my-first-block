@@ -1,8 +1,10 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 export default function save() {
+	const blockProps = useBlockProps.save({ className: "row" });
+
 	return (
-		<div {...useBlockProps.save({ className: "row" })}>
+		<div {...blockProps}>
 			<InnerBlocks.Content />
 		</div>
 	);

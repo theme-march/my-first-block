@@ -4,6 +4,26 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-my-first-block {
-	border: 1px dotted #f00;
+.custom-bootstrap-row {
+	border: 0.3px dashed #0074aa5e;
+	padding: 5px;
+	border-radius: 0px;
+	background-color: #f0f8ff;
+	transition: border-color 0.3s ease;
+	min-height: 150px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100%;
+	box-sizing: border-box;
+}
+
+.custom-bootstrap-row-inner {
+	flex: 1 1 auto;
+	width: 100%;
+	min-height: 100%;
+	box-sizing: border-box;
+	background-color: #ffffff;
+	padding: 10px;
 }

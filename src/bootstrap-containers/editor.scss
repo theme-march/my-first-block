@@ -26,18 +26,19 @@
 	box-sizing: border-box;
 }
 
-.custom-bootstrap-inner {
+.custom-bootstrap-container-inner {
 	flex: 1 1 auto;
 	width: 100%;
 	min-height: 100%;
 	box-sizing: border-box;
 	background-color: #ffffff;
 	padding: 10px;
+	.block-editor-block-list__layout {
+		position: unset;
+	}
 }
-.block-list-appender.wp-block {
-	position: relative !important;
-	margin-top: 10px !important;
-	margin-left: auto !important; /* ✅ এটিই ডান পাশে নেবে */
-	max-width: 40px;
-	max-height: 40px;
-}
+// .block-list-appender.wp-block {
+// 	position: relative !important;
+// 	margin-top: 10px !important;
+// 	margin-left: auto !important;
+// }
