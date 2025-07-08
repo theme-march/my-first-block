@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/bootstrap-container",
+  "version": "0.1.0",
+  "title": "Bootstrap Container",
+  "category": "akash",
+  "icon": "screenoptions",
+  "description": "Bootstrap container block with selectable container type.",
+  "textdomain": "gsap-title-animation",
+  "attributes": {
+    "containerClass": {
+      "type": "string",
+      "default": "container"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

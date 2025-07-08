@@ -29,7 +29,7 @@ const animateElement = (el) => {
 	const easing = el.dataset.easing || "power2.out";
 
 	if (shouldSplit && typeof SplitText === "function") {
-		const split = new SplitText(el, { type: splitType });
+		const split = new SplitText(el, { type: "words, lines, chars" });
 
 		let target;
 		switch (splitType) {
