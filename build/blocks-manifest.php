@@ -4,21 +4,42 @@ return array(
 	'bootstrap-col' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'create-block/col',
-		'version' => '0.1.0',
+		'name' => 'create-block/bootstrap-column',
 		'title' => 'Bootstrap Column',
 		'category' => 'akash',
 		'icon' => 'columns',
-		'description' => 'Bootstrap column block',
-		'textdomain' => 'gsap-title-animation',
-		'attributes' => array(
-			'colClass' => array(
-				'type' => 'string',
-				'default' => 'col'
-			)
-		),
+		'description' => 'Responsive Bootstrap column block for row layout.',
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'anchor' => false,
+			'customClassName' => false,
+			'reusable' => true
+		),
+		'attributes' => array(
+			'colsXs' => array(
+				'type' => 'string',
+				'default' => '12'
+			),
+			'colsSm' => array(
+				'type' => 'string',
+				'default' => '12'
+			),
+			'colsMd' => array(
+				'type' => 'string',
+				'default' => '6'
+			),
+			'colsLg' => array(
+				'type' => 'string',
+				'default' => '4'
+			),
+			'colsXl' => array(
+				'type' => 'string',
+				'default' => '3'
+			),
+			'colsXxl' => array(
+				'type' => 'string',
+				'default' => '3'
+			)
 		),
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
@@ -41,24 +62,6 @@ return array(
 				'default' => 'container'
 			)
 		),
-		'supports' => array(
-			'html' => false
-		),
-		'editorScript' => 'file:./index.js',
-		'editorStyle' => 'file:./index.css',
-		'style' => 'file:./style-index.css',
-		'viewScript' => 'file:./view.js'
-	),
-	'bootstrap-row' => array(
-		'$schema' => 'https://schemas.wp.org/trunk/block.json',
-		'apiVersion' => 3,
-		'name' => 'create-block/row',
-		'version' => '0.1.0',
-		'title' => 'bootstrap-row',
-		'category' => 'akash',
-		'icon' => 'layout',
-		'description' => 'A heading block with GSAP-powered animations on scroll.',
-		'textdomain' => 'gsap-title-animation',
 		'supports' => array(
 			'html' => false
 		),

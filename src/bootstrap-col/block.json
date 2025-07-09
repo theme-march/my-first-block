@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/bootstrap-column",
+	"title": "Bootstrap Column",
+	"category": "akash",
+	"icon": "columns",
+	"description": "Responsive Bootstrap column block for row layout.",
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"reusable": true
+	},
+	"attributes": {
+		"colsXs": {
+			"type": "string",
+			"default": "12"
+		},
+		"colsSm": {
+			"type": "string",
+			"default": "12"
+		},
+		"colsMd": {
+			"type": "string",
+			"default": "6"
+		},
+		"colsLg": {
+			"type": "string",
+			"default": "4"
+		},
+		"colsXl": {
+			"type": "string",
+			"default": "3"
+		},
+		"colsXxl": {
+			"type": "string",
+			"default": "3"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
