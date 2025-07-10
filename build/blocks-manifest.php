@@ -268,5 +268,68 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'viewScript' => 'file:./view.js'
+	),
+	'swiper-slider-pro' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'create-block/conference-slider',
+		'title' => 'Conference Slider',
+		'category' => 'akash',
+		'icon' => 'slides',
+		'keywords' => array(
+			'conference',
+			'slider',
+			'swiper',
+			'gsap'
+		),
+		'description' => 'Creative conference slider with parallax, animation and swiper.',
+		'supports' => array(
+			'html' => false
+		),
+		'attributes' => array(
+			'slides' => array(
+				'type' => 'array',
+				'default' => array(
+					array(
+						'title' => 'Creative',
+						'image' => 'https://daevnt.vercel.app/assets/img/hero/creative-conference.png',
+						'speakerName' => 'Sophia Martinez',
+						'speakerRole' => 'Creative Artist',
+						'datetime' => '2025 . 10.00AM',
+						'location' => '612-7 Roanoke Rd, Toronto, ON M3A 1E3, Canada'
+					)
+				),
+				'items' => array(
+					'type' => 'object',
+					'properties' => array(
+						'title1' => array(
+							'type' => 'string'
+						),
+						'title2' => array(
+							'type' => 'string'
+						),
+						'image' => array(
+							'type' => 'string'
+						),
+						'speakerName' => array(
+							'type' => 'string'
+						),
+						'speakerRole' => array(
+							'type' => 'string'
+						),
+						'datetime' => array(
+							'type' => 'string'
+						),
+						'location' => array(
+							'type' => 'string'
+						)
+					)
+				)
+			)
+		),
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js'
 	)
 );

@@ -146,7 +146,24 @@ function bootstrap_container_block_enqueue() {
 		'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
 		array(),
 		'5.3.0'
-	);
+	); 
+    wp_enqueue_style(
+        'swiper-css',
+        'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css',
+        [],
+        null
+    );
+
+    // Swiper JS
+    wp_enqueue_script(
+        'swiper-js',
+        'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js',
+        [],
+        null,
+        true
+    );
+    
+   
 }
 add_action('enqueue_block_assets', 'bootstrap_container_block_enqueue');
 
