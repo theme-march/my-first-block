@@ -1,8 +1,7 @@
 import { useBlockProps } from "@wordpress/block-editor";
 
-export default function Save({ attributes }) {
-	const { slides } = attributes;
-
+function save({ attributes }) {
+	const { slides, sliderHeight } = attributes;
 	return (
 		<section
 			{...useBlockProps.save({
@@ -14,7 +13,7 @@ export default function Save({ attributes }) {
 					<div className="swiper-slide" key={index}>
 						<div
 							className="creative-conference__wrapper parallax-item"
-							data-swiper-parallax="800"
+							style={{ minHeight: sliderHeight || "100vh" }}
 						>
 							<img
 								src={slide.image}
@@ -22,11 +21,28 @@ export default function Save({ attributes }) {
 								alt="..."
 							/>
 							<div className="container container-customizes">
-								<div className="creative-conference__content">
-									<h1 className="creative-conference__title anim-line-words home-intro__highlight">
+								<div
+									className="creative-conference__content"
+									style={{
+										maxWidth: slide?.maxWidth || "100%",
+										padding: `${slide.padding?.top || "0px"} ${
+											slide.padding?.right || "0px"
+										} ${slide.padding?.bottom || "0px"} ${
+											slide.padding?.left || "0px"
+										}`,
+									}}
+								>
+									<h1
+										className="creative-conference__title anim-line-words home-intro__highlight"
+										style={{
+											lineHeight: slide.lineHeight || "100%",
+											fontSize: slide.fontSize || "36px",
+										}}
+									>
 										<span className="home-intro__highlight-word">
 											{slide.title1}
 										</span>
+										<br />
 										<span className="home-intro__highlight-word small-text">
 											{slide.title2}
 										</span>
@@ -50,17 +66,6 @@ export default function Save({ attributes }) {
 									</div>
 								</div>
 							</div>
-							<div className="cc__slider--btn">
-								<a href="events-details.html" className="zigzag__btn">
-									<div className="zigzag__btn--text">
-										<span>Get</span>
-										<span className="zigzag__btn--icon">
-											<i className="flaticon-right-arrow"></i>
-										</span>
-										<span> Ticket</span>
-									</div>
-								</a>
-							</div>
 						</div>
 					</div>
 				))}
@@ -76,21 +81,7 @@ export default function Save({ attributes }) {
 					<h6 className="text">NEXT</h6>
 				</div>
 			</div>
-
-			<div
-				className="cc_contact--bar"
-				data-src="assets/img/hero/contact-bar.png"
-			>
-				<div className="cc_contact--bar__socialtext left-border">
-					<p>Social: FB . IN . TW. DR</p>
-				</div>
-				<div className="cc_contact--bar__number left-border">
-					<a href="tel:+14168241228">+1-416-8241228</a>
-				</div>
-				<div className="cc_contact--bar__email left-border">
-					<a href="mailto:Info@daevnt.org.world">Info@daevnt.org.world</a>
-				</div>
-			</div>
 		</section>
 	);
 }
+export default save;

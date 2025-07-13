@@ -2,6 +2,114 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@wordpress/icons/build-module/icon/index.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@wordpress/icons/build-module/icon/index.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/**
+ * WordPress dependencies
+ */
+
+
+/** @typedef {{icon: JSX.Element, size?: number} & import('@wordpress/primitives').SVGProps} IconProps */
+
+/**
+ * Return an SVG icon.
+ *
+ * @param {IconProps}                                 props icon is the SVG component to render
+ *                                                          size is a number specifying the icon size in pixels
+ *                                                          Other props will be passed to wrapped SVG component
+ * @param {import('react').ForwardedRef<HTMLElement>} ref   The forwarded ref to the SVG element.
+ *
+ * @return {JSX.Element}  Icon component
+ */
+function Icon({
+  icon,
+  size = 24,
+  ...props
+}, ref) {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.cloneElement)(icon, {
+    width: size,
+    height: size,
+    ...props,
+    ref
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(Icon));
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@wordpress/icons/build-module/library/link-off.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@wordpress/icons/build-module/library/link-off.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/primitives */ "@wordpress/primitives");
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * WordPress dependencies
+ */
+
+
+const linkOff = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__.Path, {
+    d: "M17.031 4.703 15.576 4l-1.56 3H14v.03l-2.324 4.47H9.5V13h1.396l-1.502 2.889h-.95a3.694 3.694 0 0 1 0-7.389H10V7H8.444a5.194 5.194 0 1 0 0 10.389h.17L7.5 19.53l1.416.719L15.049 8.5h.507a3.694 3.694 0 0 1 0 7.39H14v1.5h1.556a5.194 5.194 0 0 0 .273-10.383l1.202-2.304Z"
+  })
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (linkOff);
+//# sourceMappingURL=link-off.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@wordpress/icons/build-module/library/link.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@wordpress/icons/build-module/library/link.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/primitives */ "@wordpress/primitives");
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * WordPress dependencies
+ */
+
+
+const link = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__.Path, {
+    d: "M10 17.389H8.444A5.194 5.194 0 1 1 8.444 7H10v1.5H8.444a3.694 3.694 0 0 0 0 7.389H10v1.5ZM14 7h1.556a5.194 5.194 0 0 1 0 10.39H14v-1.5h1.556a3.694 3.694 0 0 0 0-7.39H14V7Zm-4.5 6h5v-1.5h-5V13Z"
+  })
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (link);
+//# sourceMappingURL=link.js.map
+
+/***/ }),
+
 /***/ "./node_modules/swiper/modules/a11y.mjs":
 /*!**********************************************!*\
   !*** ./node_modules/swiper/modules/a11y.mjs ***!
@@ -11385,7 +11493,265 @@ SwiperSlide.displayName = 'SwiperSlide';
   \******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/conference-slider","title":"Conference Slider","category":"akash","icon":"slides","keywords":["conference","slider","swiper","gsap"],"description":"Creative conference slider with parallax, animation and swiper.","supports":{"html":false},"attributes":{"slides":{"type":"array","default":[{"title":"Creative","image":"https://daevnt.vercel.app/assets/img/hero/creative-conference.png","speakerName":"Sophia Martinez","speakerRole":"Creative Artist","datetime":"2025 . 10.00AM","location":"612-7 Roanoke Rd, Toronto, ON M3A 1E3, Canada"}],"items":{"type":"object","properties":{"title1":{"type":"string"},"title2":{"type":"string"},"image":{"type":"string"},"speakerName":{"type":"string"},"speakerRole":{"type":"string"},"datetime":{"type":"string"},"location":{"type":"string"}}}}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/conference-slider","title":"Conference Slider","category":"akash","icon":"slides","keywords":["conference","slider","swiper","gsap"],"description":"Creative conference slider with parallax, animation and swiper.","supports":{"html":false},"attributes":{"slides":{"type":"array","default":[{"title1":"Creative","title2":"Conference","image":"https://daevnt.vercel.app/assets/img/hero/creative-conference.png","speakerName":"Sophia Martinez","speakerRole":"Creative Artist","datetime":"2025 . 10.00AM","location":"612-7 Roanoke Rd, Toronto, ON M3A 1E3, Canada","fontSize":"36px","maxWidth":"905px","lineHeight":"100%","padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}],"items":{"type":"object","properties":{"title1":{"type":"string"},"title2":{"type":"string"},"image":{"type":"string"},"speakerName":{"type":"string"},"speakerRole":{"type":"string"},"datetime":{"type":"string"},"location":{"type":"string"},"fontSize":{"type":"string","default":"36px"},"maxWidth":{"type":"string","default":"905px"},"lineHeight":{"type":"string","default":"100%"},"padding":{"type":"object","default":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}}}},"sliderHeight":{"type":"string","default":"100vh"}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+
+/***/ }),
+
+/***/ "./src/swiper-slider-pro/components/CustomRangeControl.js":
+/*!****************************************************************!*\
+  !*** ./src/swiper-slider-pro/components/CustomRangeControl.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+// components/MaxWidthControl.js
+
+
+
+
+
+// Allowed unit options
+
+const UNIT_OPTIONS = [{
+  label: "px",
+  value: "px"
+}, {
+  label: "%",
+  value: "%"
+}, {
+  label: "vw",
+  value: "vw"
+}, {
+  label: "vh",
+  value: "vh"
+}, {
+  label: "em",
+  value: "em"
+}];
+
+// Utility: extract number from string like "950px"
+const getNumericValue = value => parseFloat(value?.toString().replace(/[^\d.]/g, "")) || 0;
+
+// Utility: extract unit from string like "950px"
+const getUnit = value => value?.toString().match(/[a-zA-Z%]+/)?.[0] || "px";
+
+/**
+ * MaxWidthControl - Reusable component for handling responsive max-width input
+ *
+ * @param {Object} props
+ * @param {string} props.label - The label for the control
+ * @param {string} props.value - The current value (e.g., "950px")
+ * @param {Function} props.onChange - Callback when value changes
+ */
+const CustomRangeControl = ({
+  label = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Width/Height", "text-domain"),
+  value,
+  onChange
+}) => {
+  const numericValue = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useMemo)(() => getNumericValue(value), [value]);
+  const unitValue = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useMemo)(() => getUnit(value), [value]);
+  const [unit, setUnit] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(unitValue);
+
+  // Update when unit changes
+  const handleUnitChange = newUnit => {
+    setUnit(newUnit);
+    onChange(`${numericValue}${newUnit}`);
+  };
+
+  // Update when numeric value changes
+  const handleValueChange = newVal => {
+    onChange(`${newVal}${unit}`);
+  };
+
+  // Determine range based on unit
+  const {
+    min,
+    max
+  } = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useMemo)(() => {
+    if (unit === "%" || unit === "vw" || unit === "vh") return {
+      min: 10,
+      max: 100
+    };
+    return {
+      min: 100,
+      max: 1600
+    };
+  }, [unit]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.BaseControl, {
+    label: label,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      style: {
+        display: "flex",
+        gap: "12px",
+        alignItems: "flex-end"
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        style: {
+          flex: 1
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RangeControl, {
+          label: false,
+          min: min,
+          max: max,
+          step: 1,
+          value: numericValue,
+          onChange: handleValueChange
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        style: {
+          width: "55px"
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+          label: false,
+          value: unit,
+          options: UNIT_OPTIONS,
+          onChange: handleUnitChange
+        })
+      })]
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomRangeControl);
+
+/***/ }),
+
+/***/ "./src/swiper-slider-pro/components/PaddingControl.js":
+/*!************************************************************!*\
+  !*** ./src/swiper-slider-pro/components/PaddingControl.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/link-off.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/link.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+const SIDES = ["top", "right", "bottom", "left"];
+const UNIT_OPTIONS = [{
+  label: "px",
+  value: "px"
+}, {
+  label: "%",
+  value: "%"
+}, {
+  label: "em",
+  value: "em"
+}, {
+  label: "vh",
+  value: "vh"
+}];
+const getNumericValue = val => parseFloat(val?.toString().replace(/[^\d.-]/g, "")) || 0;
+const PaddingControl = ({
+  label = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Padding", "textdomain"),
+  value = {},
+  onChange
+}) => {
+  const [useSlider, setUseSlider] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(true);
+  const [selectedUnit, setSelectedUnit] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)("px");
+  const currentValue = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useMemo)(() => {
+    // default fallback values
+    return {
+      top: value?.top || `0${selectedUnit}`,
+      right: value?.right || `0${selectedUnit}`,
+      bottom: value?.bottom || `0${selectedUnit}`,
+      left: value?.left || `0${selectedUnit}`
+    };
+  }, [value, selectedUnit]);
+  const handleSideChange = (side, val) => {
+    onChange({
+      ...currentValue,
+      [side]: val
+    });
+  };
+  const handleSliderChange = val => {
+    const unified = {};
+    SIDES.forEach(side => {
+      unified[side] = `${val}${selectedUnit}`;
+    });
+    onChange(unified);
+  };
+  const handleUnitChange = unit => {
+    setSelectedUnit(unit);
+    const updated = {};
+    SIDES.forEach(side => {
+      const num = getNumericValue(currentValue[side]);
+      updated[side] = `${num}${unit}`;
+    });
+    onChange(updated);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.BaseControl, {
+    label: label,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "tm-padding-toolbar",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+        value: selectedUnit,
+        options: UNIT_OPTIONS,
+        onChange: handleUnitChange
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Tooltip, {
+        text: useSlider ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Switch to separate inputs", "textdomain") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Switch to unified slider", "textdomain"),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            icon: useSlider ? _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"] : _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"]
+          }),
+          isSmall: true,
+          variant: "tertiary",
+          onClick: () => setUseSlider(!useSlider),
+          "aria-label": (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Toggle Padding Input Mode", "textdomain")
+        })
+      })]
+    }), useSlider ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Padding", "textdomain"),
+      min: 0,
+      max: 200,
+      value: getNumericValue(currentValue.top),
+      onChange: handleSliderChange
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      style: {
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "10px"
+      },
+      children: SIDES.map(side => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        style: {
+          flex: "1 1 45%"
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalUnitControl, {
+          label: side.charAt(0).toUpperCase() + side.slice(1),
+          value: currentValue[side],
+          onChange: val => handleSideChange(side, val),
+          units: UNIT_OPTIONS
+        })
+      }, side))
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PaddingControl);
 
 /***/ }),
 
@@ -11399,17 +11765,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Edit)
 /* harmony export */ });
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var swiper_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! swiper/react */ "./node_modules/swiper/swiper-react.mjs");
-/* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/swiper-slider-pro/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var swiper_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! swiper/react */ "./node_modules/swiper/swiper-react.mjs");
+/* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
+/* harmony import */ var _components_PaddingControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/PaddingControl */ "./src/swiper-slider-pro/components/PaddingControl.js");
+/* harmony import */ var _components_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/CustomRangeControl */ "./src/swiper-slider-pro/components/CustomRangeControl.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editor.scss */ "./src/swiper-slider-pro/editor.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__);
+
+
+
 
 
 
@@ -11422,11 +11795,17 @@ function Edit({
   setAttributes
 }) {
   const {
-    slides = []
+    slides = [],
+    sliderHeight = "100vh"
   } = attributes;
-  const swiperRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
-
-  // Slide update handlers
+  const swiperRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useRef)(null);
+  const extractNumber = val => {
+    if (!val) return 0;
+    return parseFloat(val.toString().replace(/[^\d.]/g, "")) || 0;
+  };
+  const addUnit = (num, unit) => {
+    return num !== undefined && num !== null ? `${num}${unit}` : "";
+  };
   const updateSlide = (index, key, value) => {
     const newSlides = [...slides];
     newSlides[index][key] = value;
@@ -11442,7 +11821,16 @@ function Edit({
       speakerRole: "Role",
       location: "Venue",
       datetime: "10:00 AM",
-      image: ""
+      image: "",
+      lineHeight: "100%",
+      fontSize: "36px",
+      maxWidth: "950px",
+      padding: {
+        top: "0px",
+        right: "0px",
+        bottom: "0px",
+        left: "0px"
+      }
     };
     setAttributes({
       slides: [...slides, newSlide]
@@ -11454,134 +11842,178 @@ function Edit({
       slides: newSlides
     });
   };
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
+  const updateAllSliderHeight = val => {
+    setAttributes({
+      sliderHeight: val
+    });
+  };
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: "tm-slider creative-conference creative-conference__slider"
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-        title: "Slides",
-        children: [slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Slides", "text-domain"),
+        children: [slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           style: {
             marginBottom: "10px",
             borderBottom: "1px solid #ccc",
             paddingBottom: "10px"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h5", {
             children: `Slide ${index + 1}`
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-            label: `Title 1 (Slide ${index + 1})`,
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Title 1", "text-domain"),
             value: slide.title1,
             onChange: val => updateSlide(index, "title1", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-            label: "Title 2",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Title 2", "text-domain"),
             value: slide.title2,
             onChange: val => updateSlide(index, "title2", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-            label: "Speaker Name",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Speaker Name", "text-domain"),
             value: slide.speakerName,
             onChange: val => updateSlide(index, "speakerName", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-            label: "Speaker Role",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Speaker Role", "text-domain"),
             value: slide.speakerRole,
             onChange: val => updateSlide(index, "speakerRole", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-            label: "Location",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Location", "text-domain"),
             value: slide.location,
             onChange: val => updateSlide(index, "location", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-            label: "Time",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Time", "text-domain"),
             value: slide.datetime,
             onChange: val => updateSlide(index, "datetime", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaUploadCheck, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaUpload, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Content Max Width", "text-domain"),
+            value: slide.maxWidth,
+            onChange: val => updateSlide(index, "maxWidth", val)
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Slider Height (px)", "text-domain"),
+            value: sliderHeight,
+            onChange: updateAllSliderHeight
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Font Size (px)", "text-domain"),
+            min: 10,
+            max: 250,
+            value: extractNumber(slide.fontSize),
+            onChange: val => updateSlide(index, "fontSize", addUnit(val, "px"))
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Line Height (%)", "text-domain"),
+            min: 50,
+            max: 300,
+            value: extractNumber(slide.lineHeight),
+            onChange: val => updateSlide(index, "lineHeight", addUnit(val, "%"))
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_PaddingControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Padding (Top, Right, Bottom, Left)", "text-domain"),
+            value: slide.padding || {
+              top: "0px",
+              right: "0px",
+              bottom: "0px",
+              left: "0px"
+            },
+            onChange: val => updateSlide(index, "padding", val)
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
               onSelect: media => updateSlide(index, "image", media.url),
               allowedTypes: ["image"],
               render: ({
                 open
-              }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+              }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
                 variant: "secondary",
                 onClick: open,
-                children: slide.image ? "Replace Image" : "Upload Image"
+                children: slide.image ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Replace Image", "text-domain") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Upload Image", "text-domain")
               })
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
             isDestructive: true,
             onClick: () => removeSlide(index),
             style: {
               marginTop: "10px"
             },
-            children: "Remove Slide"
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Remove Slide", "text-domain")
           })]
-        }, index)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        }, index)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
           isPrimary: true,
           onClick: addSlide,
-          children: "Add New Slide"
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add New Slide", "text-domain")
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       ...blockProps,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_3__.Swiper, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_4__.Swiper, {
         speed: 1000,
         loop: true,
         slidesPerView: "auto",
-        modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_4__.Parallax, swiper_modules__WEBPACK_IMPORTED_MODULE_4__.Pagination],
-        allowTouchMove: false // ❌ Mouse/touch swipe disabled
-        ,
+        modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_5__.Parallax, swiper_modules__WEBPACK_IMPORTED_MODULE_5__.Pagination],
+        allowTouchMove: false,
         onSwiper: swiper => {
           swiperRef.current = swiper;
-          setTimeout(() => swiper.update(), 100); // delay update
+          setTimeout(() => swiper.update(), 100);
         },
-        children: slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_3__.SwiperSlide, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        children: slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_4__.SwiperSlide, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "creative-conference__wrapper",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+            style: {
+              minHeight: sliderHeight || "100vh"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
               src: slide.image,
               className: "creative-conference__img",
               alt: ""
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "container container-customizes",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "creative-conference__content",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h1", {
+                style: {
+                  maxWidth: slide?.maxWidth || "100%",
+                  padding: `${slide.padding?.top || "0px"} ${slide.padding?.right || "0px"} ${slide.padding?.bottom || "0px"} ${slide.padding?.left || "0px"}`
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("h1", {
                   className: "creative-conference__title anim-line-words home-intro__highlight",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  style: {
+                    lineHeight: slide.lineHeight || "100%",
+                    fontSize: slide.fontSize || "36px"
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                     className: "home-intro__highlight-word",
                     children: slide.title1
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                     className: "home-intro__highlight-word small-text",
                     children: slide.title2
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                   className: "creative-conference__speaker",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
                     className: "speaker__img",
                     src: slide.image,
                     alt: ""
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                     className: "speaker__content",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                       className: "speaker__inner-text anim-line-words",
                       children: "UPCOMING"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
                       className: "speaker__name",
                       children: slide.speakerName
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                       className: "speaker__desp",
                       children: slide.speakerRole
                     })]
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                   className: "creative-conference__datetime",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                     className: "datetime_desp",
                     children: slide.location
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                     className: "datetime__content",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                       className: "datetime__name",
                       children: "Mar 25"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
                       className: "datetime__desp",
                       children: slide.datetime
                     })]
@@ -11591,23 +12023,23 @@ function Edit({
             })]
           })
         }, index))
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "cc__slider--controller",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "cc__slider__prev--btn",
           onClick: () => swiperRef.current?.slidePrev(),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             className: "dotshape"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
             className: "text",
             children: "PREV"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "cc__slider__next--btn",
           onClick: () => swiperRef.current?.slideNext(),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             className: "dotshape"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
             className: "text",
             children: "NEXT"
           })]
@@ -11670,7 +12102,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Save)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
@@ -11678,11 +12110,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function Save({
+function save({
   attributes
 }) {
   const {
-    slides
+    slides,
+    sliderHeight
   } = attributes;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
@@ -11694,7 +12127,9 @@ function Save({
         className: "swiper-slide",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "creative-conference__wrapper parallax-item",
-          "data-swiper-parallax": "800",
+          style: {
+            minHeight: sliderHeight || "100vh"
+          },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
             src: slide.image,
             className: "creative-conference__img",
@@ -11703,12 +12138,20 @@ function Save({
             className: "container container-customizes",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
               className: "creative-conference__content",
+              style: {
+                maxWidth: slide?.maxWidth || "100%",
+                padding: `${slide.padding?.top || "0px"} ${slide.padding?.right || "0px"} ${slide.padding?.bottom || "0px"} ${slide.padding?.left || "0px"}`
+              },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h1", {
                 className: "creative-conference__title anim-line-words home-intro__highlight",
+                style: {
+                  lineHeight: slide.lineHeight || "100%",
+                  fontSize: slide.fontSize || "36px"
+                },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
                   className: "home-intro__highlight-word",
                   children: slide.title1
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
                   className: "home-intro__highlight-word small-text",
                   children: slide.title2
                 })]
@@ -11748,25 +12191,6 @@ function Save({
                 })]
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "cc__slider--btn",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-              href: "events-details.html",
-              className: "zigzag__btn",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "zigzag__btn--text",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  children: "Get"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "zigzag__btn--icon",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                    className: "flaticon-right-arrow"
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  children: " Ticket"
-                })]
-              })
-            })
           })]
         })
       }, index))
@@ -11789,30 +12213,10 @@ function Save({
           children: "NEXT"
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "cc_contact--bar",
-      "data-src": "assets/img/hero/contact-bar.png",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "cc_contact--bar__socialtext left-border",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-          children: "Social: FB . IN . TW. DR"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "cc_contact--bar__number left-border",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-          href: "tel:+14168241228",
-          children: "+1-416-8241228"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "cc_contact--bar__email left-border",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-          href: "mailto:Info@daevnt.org.world",
-          children: "Info@daevnt.org.world"
-        })
-      })]
     })]
   });
 }
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (save);
 
 /***/ }),
 
@@ -11865,6 +12269,26 @@ module.exports = window["wp"]["components"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "@wordpress/primitives":
+/*!************************************!*\
+  !*** external ["wp","primitives"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["primitives"];
 
 /***/ }),
 

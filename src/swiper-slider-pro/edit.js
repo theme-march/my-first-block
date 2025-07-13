@@ -1,23 +1,40 @@
+import { __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
 	InspectorControls,
 	MediaUpload,
 	MediaUploadCheck,
 } from "@wordpress/block-editor";
-import { PanelBody, Button, TextControl } from "@wordpress/components";
+import {
+	PanelBody,
+	Button,
+	TextControl,
+	RangeControl,
+} from "@wordpress/components";
 import { useRef } from "@wordpress/element";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax, Pagination } from "swiper/modules";
 
+import PaddingControl from "./components/PaddingControl";
+import CustomRangeControl from "./components/CustomRangeControl";
+
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { slides = [] } = attributes;
+	const { slides = [], sliderHeight = "100vh" } = attributes;
 
 	const swiperRef = useRef(null);
 
-	// Slide update handlers
+	const extractNumber = (val) => {
+		if (!val) return 0;
+		return parseFloat(val.toString().replace(/[^\d.]/g, "")) || 0;
+	};
+
+	const addUnit = (num, unit) => {
+		return num !== undefined && num !== null ? `${num}${unit}` : "";
+	};
+
 	const updateSlide = (index, key, value) => {
 		const newSlides = [...slides];
 		newSlides[index][key] = value;
@@ -33,6 +50,15 @@ export default function Edit({ attributes, setAttributes }) {
 			location: "Venue",
 			datetime: "10:00 AM",
 			image: "",
+			lineHeight: "100%",
+			fontSize: "36px",
+			maxWidth: "950px",
+			padding: {
+				top: "0px",
+				right: "0px",
+				bottom: "0px",
+				left: "0px",
+			},
 		};
 		setAttributes({ slides: [...slides, newSlide] });
 	};
@@ -42,6 +68,10 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ slides: newSlides });
 	};
 
+	const updateAllSliderHeight = (val) => {
+		setAttributes({ sliderHeight: val });
+	};
+
 	const blockProps = useBlockProps({
 		className: "tm-slider creative-conference creative-conference__slider",
 	});
@@ -49,7 +79,7 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Slides">
+				<PanelBody title={__("Slides", "text-domain")}>
 					{slides.map((slide, index) => (
 						<div
 							key={index}
@@ -61,57 +91,110 @@ export default function Edit({ attributes, setAttributes }) {
 						>
 							<h5>{`Slide ${index + 1}`}</h5>
 							<TextControl
-								label={`Title 1 (Slide ${index + 1})`}
+								label={__("Title 1", "text-domain")}
 								value={slide.title1}
 								onChange={(val) => updateSlide(index, "title1", val)}
 							/>
 							<TextControl
-								label="Title 2"
+								label={__("Title 2", "text-domain")}
 								value={slide.title2}
 								onChange={(val) => updateSlide(index, "title2", val)}
 							/>
 							<TextControl
-								label="Speaker Name"
+								label={__("Speaker Name", "text-domain")}
 								value={slide.speakerName}
 								onChange={(val) => updateSlide(index, "speakerName", val)}
 							/>
 							<TextControl
-								label="Speaker Role"
+								label={__("Speaker Role", "text-domain")}
 								value={slide.speakerRole}
 								onChange={(val) => updateSlide(index, "speakerRole", val)}
 							/>
 							<TextControl
-								label="Location"
+								label={__("Location", "text-domain")}
 								value={slide.location}
 								onChange={(val) => updateSlide(index, "location", val)}
 							/>
 							<TextControl
-								label="Time"
+								label={__("Time", "text-domain")}
 								value={slide.datetime}
 								onChange={(val) => updateSlide(index, "datetime", val)}
 							/>
+
+							{/*Max Width RangeControl (number in px) */}
+							<CustomRangeControl
+								label={__("Content Max Width", "text-domain")}
+								value={slide.maxWidth}
+								onChange={(val) => updateSlide(index, "maxWidth", val)}
+							/>
+
+							{/* Slider Height controls all slides */}
+							<CustomRangeControl
+								label={__("Slider Height (px)", "text-domain")}
+								value={sliderHeight}
+								onChange={updateAllSliderHeight}
+							/>
+
+							{/* Font Size RangeControl (number in px) */}
+							<RangeControl
+								label={__("Font Size (px)", "text-domain")}
+								min={10}
+								max={250}
+								value={extractNumber(slide.fontSize)}
+								onChange={(val) =>
+									updateSlide(index, "fontSize", addUnit(val, "px"))
+								}
+							/>
+
+							{/* Line Height RangeControl (number in %) */}
+							<RangeControl
+								label={__("Line Height (%)", "text-domain")}
+								min={50}
+								max={300}
+								value={extractNumber(slide.lineHeight)}
+								onChange={(val) =>
+									updateSlide(index, "lineHeight", addUnit(val, "%"))
+								}
+							/>
+
+							<PaddingControl
+								label={__("Padding (Top, Right, Bottom, Left)", "text-domain")}
+								value={
+									slide.padding || {
+										top: "0px",
+										right: "0px",
+										bottom: "0px",
+										left: "0px",
+									}
+								}
+								onChange={(val) => updateSlide(index, "padding", val)}
+							/>
+
 							<MediaUploadCheck>
 								<MediaUpload
 									onSelect={(media) => updateSlide(index, "image", media.url)}
 									allowedTypes={["image"]}
 									render={({ open }) => (
 										<Button variant="secondary" onClick={open}>
-											{slide.image ? "Replace Image" : "Upload Image"}
+											{slide.image
+												? __("Replace Image", "text-domain")
+												: __("Upload Image", "text-domain")}
 										</Button>
 									)}
 								/>
 							</MediaUploadCheck>
+
 							<Button
 								isDestructive
 								onClick={() => removeSlide(index)}
 								style={{ marginTop: "10px" }}
 							>
-								Remove Slide
+								{__("Remove Slide", "text-domain")}
 							</Button>
 						</div>
 					))}
 					<Button isPrimary onClick={addSlide}>
-						Add New Slide
+						{__("Add New Slide", "text-domain")}
 					</Button>
 				</PanelBody>
 			</InspectorControls>
@@ -122,26 +205,46 @@ export default function Edit({ attributes, setAttributes }) {
 					loop={true}
 					slidesPerView="auto"
 					modules={[Parallax, Pagination]}
-					allowTouchMove={false} // ❌ Mouse/touch swipe disabled
+					allowTouchMove={false}
 					onSwiper={(swiper) => {
 						swiperRef.current = swiper;
-						setTimeout(() => swiper.update(), 100); // delay update
+						setTimeout(() => swiper.update(), 100);
 					}}
 				>
 					{slides.map((slide, index) => (
 						<SwiperSlide key={index}>
-							<div className="creative-conference__wrapper">
+							<div
+								className="creative-conference__wrapper"
+								style={{ minHeight: sliderHeight || "100vh" }}
+							>
 								<img
 									src={slide.image}
 									className="creative-conference__img"
 									alt=""
 								/>
 								<div className="container container-customizes">
-									<div className="creative-conference__content">
-										<h1 className="creative-conference__title anim-line-words home-intro__highlight">
+									<div
+										className="creative-conference__content"
+										style={{
+											maxWidth: slide?.maxWidth || "100%",
+											padding: `${slide.padding?.top || "0px"} ${
+												slide.padding?.right || "0px"
+											} ${slide.padding?.bottom || "0px"} ${
+												slide.padding?.left || "0px"
+											}`,
+										}}
+									>
+										<h1
+											className="creative-conference__title anim-line-words home-intro__highlight"
+											style={{
+												lineHeight: slide.lineHeight || "100%",
+												fontSize: slide.fontSize || "36px",
+											}}
+										>
 											<span className="home-intro__highlight-word">
 												{slide.title1}
 											</span>
+											<br />
 											<span className="home-intro__highlight-word small-text">
 												{slide.title2}
 											</span>

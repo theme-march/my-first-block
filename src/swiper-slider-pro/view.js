@@ -63,3 +63,4 @@ document.querySelectorAll(".creative-conference__slider").forEach((slider) => {
 		);
 	}
 });
+console.log("view page page");

@@ -20,12 +20,22 @@
       "type": "array",
       "default": [
         {
-          "title": "Creative",
+          "title1": "Creative",
+          "title2": "Conference",
           "image": "https://daevnt.vercel.app/assets/img/hero/creative-conference.png",
           "speakerName": "Sophia Martinez",
           "speakerRole": "Creative Artist",
           "datetime": "2025 . 10.00AM",
-          "location": "612-7 Roanoke Rd, Toronto, ON M3A 1E3, Canada"
+          "location": "612-7 Roanoke Rd, Toronto, ON M3A 1E3, Canada",
+          "fontSize": "36px",
+          "maxWidth": "905px",
+          "lineHeight": "100%",
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          }
         }
       ],
       "items": {
@@ -51,9 +61,34 @@
           },
           "location": {
             "type": "string"
+          },
+          "fontSize": {
+            "type": "string",
+            "default": "36px"
+          },
+          "maxWidth": {
+            "type": "string",
+            "default": "905px"
+          },
+          "lineHeight": {
+            "type": "string",
+            "default": "100%"
+          },
+          "padding": {
+            "type": "object",
+            "default": {
+              "top": "0px",
+              "right": "0px",
+              "bottom": "0px",
+              "left": "0px"
+            }
           }
         }
       }
+    },
+    "sliderHeight": {
+      "type": "string",
+      "default": "100vh"
     }
   },
   "editorScript": "file:./index.js",

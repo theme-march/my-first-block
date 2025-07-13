@@ -11216,6 +11216,7 @@ document.querySelectorAll(".creative-conference__slider").forEach(slider => {
     }, "-=1.2");
   }
 });
+console.log("view page page");
 })();
 
 /******/ })()
