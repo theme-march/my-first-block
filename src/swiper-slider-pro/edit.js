@@ -19,9 +19,11 @@ import { Parallax, Pagination } from "swiper/modules";
 import PaddingControl from "./components/PaddingControl";
 import CustomRangeControl from "./components/CustomRangeControl";
 
-import "./editor.scss";
+import useDeviceType from "./hooks/useDeviceType";
 
-export default function Edit({ attributes, setAttributes }) {
+import { getAllSlideCSS, getSlideClassName } from "./components/getDynamicCSS";
+
+export default function Edit({ attributes, setAttributes, clientId }) {
 	const { slides = [], sliderHeight = "100vh" } = attributes;
 
 	const swiperRef = useRef(null);
@@ -53,6 +55,11 @@ export default function Edit({ attributes, setAttributes }) {
 			lineHeight: "100%",
 			fontSize: "36px",
 			maxWidth: "950px",
+			fontSize: {
+				desktop: "36px",
+				tablet: "28px",
+				mobile: "22px",
+			},
 			padding: {
 				top: "0px",
 				right: "0px",
@@ -75,6 +82,36 @@ export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({
 		className: "tm-slider creative-conference creative-conference__slider",
 	});
+
+	const device = useDeviceType();
+	console.log(device);
+
+	const allSlideCSS = getAllSlideCSS(slides, clientId);
+
+	// const getSlideClassName = (index) =>
+	// 	`accordion-child-${clientId.slice(0, 8)}-${index}`;
+
+	// const allSlideCSS = slides
+	// 	.map((slide, index) => {
+	// 		const slideClass = getSlideClassName(index);
+	// 		return `
+	// 		.${slideClass} .zolo-accordion-head-title {
+	// 			font-size: ${slide?.fontSize?.desktop || "36px"};
+	// 		}
+	// 		@media (max-width: 1024px) {
+	// 			.${slideClass} .zolo-accordion-head-title {
+	// 				font-size: ${slide?.fontSize?.tablet || "28px"};
+	// 			}
+	// 		}
+	// 		@media (max-width: 767px) {
+	// 			.${slideClass} .zolo-accordion-head-title {
+	// 				font-size: ${slide?.fontSize?.mobile || "22px"};
+	// 			}
+	// 		}
+	// 	`;
+	// 	})
+	// 	.join("\n");
+	console.log(allSlideCSS);
 
 	return (
 		<>
@@ -136,13 +173,25 @@ export default function Edit({ attributes, setAttributes }) {
 							/>
 
 							{/* Font Size RangeControl (number in px) */}
-							<RangeControl
+							{/* <RangeControl
 								label={__("Font Size (px)", "text-domain")}
 								min={10}
 								max={250}
 								value={extractNumber(slide.fontSize)}
 								onChange={(val) =>
 									updateSlide(index, "fontSize", addUnit(val, "px"))
+								}
+							/> */}
+							<RangeControl
+								label={`Font Size (${device})`}
+								min={10}
+								max={250}
+								value={extractNumber(slide.fontSize?.[device])}
+								onChange={(val) =>
+									updateSlide(index, "fontSize", {
+										...slide.fontSize,
+										[device]: `${val}px`,
+									})
 								}
 							/>
 
@@ -200,6 +249,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 
 			<div {...blockProps}>
+				<style>{allSlideCSS}</style>
 				<Swiper
 					speed={1000}
 					loop={true}
@@ -212,7 +262,7 @@ export default function Edit({ attributes, setAttributes }) {
 					}}
 				>
 					{slides.map((slide, index) => (
-						<SwiperSlide key={index}>
+						<SwiperSlide key={index} className={getSlideClassName(index)}>
 							<div
 								className="creative-conference__wrapper"
 								style={{ minHeight: sliderHeight || "100vh" }}
@@ -235,10 +285,9 @@ export default function Edit({ attributes, setAttributes }) {
 										}}
 									>
 										<h1
-											className="creative-conference__title anim-line-words home-intro__highlight"
+											className="creative-conference__title anim-line-words home-intro__highlight zolo-accordion-head-title"
 											style={{
 												lineHeight: slide.lineHeight || "100%",
-												fontSize: slide.fontSize || "36px",
 											}}
 										>
 											<span className="home-intro__highlight-word">

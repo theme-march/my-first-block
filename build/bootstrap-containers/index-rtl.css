@@ -1,1 +1,41 @@
-.custom-bootstrap-container{background-color:#f0f8ff;border:.3px dashed rgba(0,116,170,.369);border-radius:0;min-height:150px;padding:5px;transition:border-color .3s ease}.custom-bootstrap-container:hover{border-color:#005177}.custom-bootstrap-container{box-sizing:border-box;display:flex;flex-direction:column;min-height:100%;width:100%}.custom-bootstrap-container-inner{background-color:#fff;box-sizing:border-box;flex:1 1 auto;min-height:100%;padding:10px;width:100%}.custom-bootstrap-container-inner .block-editor-block-list__layout{position:unset}
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/bootstrap-containers/editor.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.custom-bootstrap-container {
+  border: 0.3px dashed rgba(0, 116, 170, 0.368627451);
+  padding: 5px;
+  border-radius: 0px;
+  background-color: #f0f8ff;
+  transition: border-color 0.3s ease;
+  min-height: 150px;
+  box-sizing: border-box;
+}
+
+.custom-bootstrap-container:hover {
+  border-color: #005177;
+}
+
+.custom-bootstrap-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.custom-bootstrap-container-inner {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding: 10px;
+}
+.custom-bootstrap-container-inner .block-editor-block-list__layout {
+  position: unset;
+}

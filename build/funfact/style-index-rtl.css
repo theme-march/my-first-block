@@ -1,1 +1,44 @@
-.funfact-content__wrapper{display:flex;flex-wrap:wrap;gap:30px;justify-content:center}.funfact-content__item{align-items:center;border-radius:8px;display:flex;flex:1 1 calc(25% - 70px);flex-direction:column;text-align:center}.funfact-content__item .counter{line-height:100%;margin:5px}.funfact-content__item--title{line-height:110%;margin:5px}.funfact-content__item--desp{margin:5px}@media screen and (max-width:991px){.funfact-content__wapper{justify-content:space-around}}@media screen and (max-width:767px){.funfact-content__wapper{flex-direction:column;gap:50px}.funfact-content__item--cunter{font-size:48px}}
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/funfact/style.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+.funfact-content__wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.funfact-content__item {
+  flex: 1 1 calc(25% - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+}
+.funfact-content__item .counter {
+  line-height: 100%;
+  margin: 5px;
+}
+.funfact-content__item--title {
+  line-height: 110%;
+  margin: 5px;
+}
+.funfact-content__item--desp {
+  margin-top: 5px;
+  margin: 5px;
+}
+
+@media screen and (max-width: 991px) {
+  .funfact-content__wapper {
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 767px) {
+  .funfact-content__wapper {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .funfact-content__item--cunter {
+    font-size: 48px;
+  }
+}

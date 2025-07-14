@@ -272,16 +272,11 @@ return array(
 	'swiper-slider-pro' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
+		'version' => '0.1.0',
 		'name' => 'create-block/conference-slider',
 		'title' => 'Conference Slider',
 		'category' => 'akash',
 		'icon' => 'slides',
-		'keywords' => array(
-			'conference',
-			'slider',
-			'swiper',
-			'gsap'
-		),
 		'description' => 'Creative conference slider with parallax, animation and swiper.',
 		'supports' => array(
 			'html' => false
@@ -334,8 +329,9 @@ return array(
 							'type' => 'string'
 						),
 						'fontSize' => array(
-							'type' => 'string',
-							'default' => '36px'
+							'desktop' => '36px',
+							'tablet' => '28px',
+							'mobile' => '22px'
 						),
 						'maxWidth' => array(
 							'type' => 'string',
@@ -362,6 +358,7 @@ return array(
 				'default' => '100vh'
 			)
 		),
+		'textdomain' => 'Conference',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',

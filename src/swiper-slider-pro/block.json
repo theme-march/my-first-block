@@ -1,16 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "0.1.0",
 	"name": "create-block/conference-slider",
 	"title": "Conference Slider",
 	"category": "akash",
 	"icon": "slides",
-	"keywords": [
-		"conference",
-		"slider",
-		"swiper",
-		"gsap"
-	],
 	"description": "Creative conference slider with parallax, animation and swiper.",
 	"supports": {
 		"html": false
@@ -63,8 +58,9 @@
 						"type": "string"
 					},
 					"fontSize": {
-						"type": "string",
-						"default": "36px"
+						"desktop": "36px",
+						"tablet": "28px",
+						"mobile": "22px"
 					},
 					"maxWidth": {
 						"type": "string",
@@ -91,6 +87,7 @@
 			"default": "100vh"
 		}
 	},
+	"textdomain": "Conference",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
