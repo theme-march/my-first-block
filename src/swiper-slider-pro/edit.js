@@ -165,22 +165,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 								value={slide.padding}
 								onChange={(val) => updateSlide(index, "padding", val)}
 							/>
-
-							{/* Image Upload */}
-							<MediaUploadCheck>
-								<MediaUpload
-									onSelect={(media) => updateSlide(index, "image", media.url)}
-									allowedTypes={["image"]}
-									render={({ open }) => (
-										<Button variant="secondary" onClick={open}>
-											{slide.image
-												? __("Replace Image", "text-domain")
-												: __("Upload Image", "text-domain")}
-										</Button>
-									)}
-								/>
-							</MediaUploadCheck>
-
 							<PanelColorSettings
 								title={__("Text Colors", "text-domain")}
 								initialOpen={false}
@@ -217,6 +201,20 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									},
 								]}
 							/>
+							{/* Image Upload */}
+							<MediaUploadCheck>
+								<MediaUpload
+									onSelect={(media) => updateSlide(index, "image", media.url)}
+									allowedTypes={["image"]}
+									render={({ open }) => (
+										<Button variant="secondary" onClick={open}>
+											{slide.image
+												? __("Replace Image", "text-domain")
+												: __("Upload Image", "text-domain")}
+										</Button>
+									)}
+								/>
+							</MediaUploadCheck>
 
 							<Button
 								isDestructive
