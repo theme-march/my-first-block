@@ -11493,7 +11493,7 @@ SwiperSlide.displayName = 'SwiperSlide';
   \******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"version":"0.1.0","name":"create-block/conference-slider","title":"Conference Slider","category":"akash","icon":"slides","description":"Creative conference slider with parallax, animation and swiper.","supports":{"html":false},"attributes":{"slides":{"type":"array","default":[{"title1":"Creative","title2":"Conference","image":"https://daevnt.vercel.app/assets/img/hero/creative-conference.png","speakerName":"Sophia Martinez","speakerRole":"Creative Artist","datetime":"2025 . 10.00AM","location":"612-7 Roanoke Rd, Toronto, ON M3A 1E3, Canada","fontSize":"36px","maxWidth":"905px","lineHeight":"100%","padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}],"items":{"type":"object","properties":{"title1":{"type":"string"},"title2":{"type":"string"},"image":{"type":"string"},"speakerName":{"type":"string"},"speakerRole":{"type":"string"},"datetime":{"type":"string"},"location":{"type":"string"},"fontSize":{"desktop":"36px","tablet":"28px","mobile":"22px"},"maxWidth":{"type":"string","default":"905px"},"lineHeight":{"type":"string","default":"100%"},"padding":{"type":"object","default":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}}}},"sliderHeight":{"type":"string","default":"100vh"}},"textdomain":"Conference","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"version":"0.1.0","name":"create-block/conference-slider","title":"Conference Slider","category":"akash","icon":"slides","description":"Creative conference slider with parallax, animation and swiper.","supports":{"html":false},"attributes":{"slides":{"type":"array","default":[{"title1":"Creative","title2":"Conference","image":"https://daevnt.vercel.app/assets/img/hero/creative-conference.png","speakerName":"Sophia Martinez","speakerRole":"Creative Artist","datetime":"2025 . 10.00AM","location":"612-7 Roanoke Rd, Toronto, ON M3A 1E3, Canada","fontSize":"36px","maxWidth":"905px","lineHeight":"100%","padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}],"items":{"type":"object","properties":{"title1":{"type":"string"},"title2":{"type":"string"},"image":{"type":"string"},"speakerName":{"type":"string"},"speakerRole":{"type":"string"},"datetime":{"type":"string"},"location":{"type":"string"},"fontSize":{"desktop":"36px","tablet":"28px","mobile":"22px"},"maxWidth":{"type":"string","default":"905px"},"lineHeight":{"type":"string","default":"100%"},"padding":{"type":"object","default":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}}}},"sliderHeight":{"type":"string","default":"100vh"},"customCss":{"type":"string","default":""},"unId":{"type":"string","default":""}},"textdomain":"Conference","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -11755,41 +11755,6 @@ const PaddingControl = ({
 
 /***/ }),
 
-/***/ "./src/swiper-slider-pro/components/getDynamicCSS.js":
-/*!***********************************************************!*\
-  !*** ./src/swiper-slider-pro/components/getDynamicCSS.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getAllSlideCSS: () => (/* binding */ getAllSlideCSS),
-/* harmony export */   getSlideClassName: () => (/* binding */ getSlideClassName)
-/* harmony export */ });
-const getSlideClassName = (index, clientId) => `accordion-child-${clientId?.slice(0, 8)}-${index}`;
-const getAllSlideCSS = (slides = [], clientId) => {
-  return slides.map((slide, index) => {
-    const slideClass = getSlideClassName(index, clientId);
-    return `
-				.${slideClass} .zolo-accordion-head-title {
-					font-size: ${slide?.fontSize?.desktop || "36px"};
-				}
-				@media (max-width: 1024px) {
-					.${slideClass} .zolo-accordion-head-title {
-						font-size: ${slide?.fontSize?.tablet || "28px"};
-					}
-				}
-				@media (max-width: 767px) {
-					.${slideClass} .zolo-accordion-head-title {
-						font-size: ${slide?.fontSize?.mobile || "22px"};
-					}
-				}
-			`;
-  }).join("\n");
-};
-
-/***/ }),
-
 /***/ "./src/swiper-slider-pro/edit.js":
 /*!***************************************!*\
   !*** ./src/swiper-slider-pro/edit.js ***!
@@ -11813,9 +11778,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_PaddingControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/PaddingControl */ "./src/swiper-slider-pro/components/PaddingControl.js");
 /* harmony import */ var _components_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/CustomRangeControl */ "./src/swiper-slider-pro/components/CustomRangeControl.js");
 /* harmony import */ var _hooks_useDeviceType__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./hooks/useDeviceType */ "./src/swiper-slider-pro/hooks/useDeviceType.js");
-/* harmony import */ var _components_getDynamicCSS__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/getDynamicCSS */ "./src/swiper-slider-pro/components/getDynamicCSS.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -11826,7 +11790,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// Helpers
 
+const extractNumber = val => parseFloat(val?.toString().replace(/[^\d.]/g, "")) || 0;
+const addUnit = (num, unit) => num !== undefined && num !== null ? `${num}${unit}` : "";
+const defaultSlide = () => ({
+  title1: "Title One",
+  title2: "Subtitle",
+  speakerName: "Speaker Name",
+  speakerRole: "Speaker Role",
+  location: "Venue",
+  datetime: "10:00 AM",
+  image: "",
+  lineHeight: "100%",
+  maxWidth: "950px",
+  fontSize: {
+    desktop: "36px",
+    tablet: "28px",
+    mobile: "22px"
+  },
+  padding: {
+    top: "0px",
+    right: "0px",
+    bottom: "0px",
+    left: "0px"
+  },
+  customCss: "",
+  unId: ""
+});
 function Edit({
   attributes,
   setAttributes,
@@ -11837,135 +11828,87 @@ function Edit({
     sliderHeight = "100vh"
   } = attributes;
   const swiperRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useRef)(null);
-  const extractNumber = val => {
-    if (!val) return 0;
-    return parseFloat(val.toString().replace(/[^\d.]/g, "")) || 0;
-  };
-  const addUnit = (num, unit) => {
-    return num !== undefined && num !== null ? `${num}${unit}` : "";
-  };
-  const updateSlide = (index, key, value) => {
+  const device = (0,_hooks_useDeviceType__WEBPACK_IMPORTED_MODULE_8__["default"])();
+
+  // Update slide content
+  const updateSlide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useCallback)((index, key, value) => {
     const newSlides = [...slides];
-    newSlides[index][key] = value;
-    setAttributes({
-      slides: newSlides
-    });
-  };
-  const addSlide = () => {
-    const newSlide = {
-      title1: "Title One",
-      title2: "Subtitle",
-      speakerName: "Speaker",
-      speakerRole: "Role",
-      location: "Venue",
-      datetime: "10:00 AM",
-      image: "",
-      lineHeight: "100%",
-      fontSize: "36px",
-      maxWidth: "950px",
-      fontSize: {
-        desktop: "36px",
-        tablet: "28px",
-        mobile: "22px"
-      },
-      padding: {
-        top: "0px",
-        right: "0px",
-        bottom: "0px",
-        left: "0px"
-      }
+    newSlides[index] = {
+      ...newSlides[index],
+      [key]: value
     };
     setAttributes({
-      slides: [...slides, newSlide]
-    });
-  };
-  const removeSlide = index => {
-    const newSlides = slides.filter((_, i) => i !== index);
-    setAttributes({
       slides: newSlides
     });
-  };
-  const updateAllSliderHeight = val => {
-    setAttributes({
-      sliderHeight: val
-    });
-  };
+  }, [slides, setAttributes]);
+
+  // Add a new slide
+  const addSlide = () => setAttributes({
+    slides: [...slides, defaultSlide()]
+  });
+
+  // Remove a slide
+  const removeSlide = index => setAttributes({
+    slides: slides.filter((_, i) => i !== index)
+  });
+
+  // Set slider height
+  const updateSliderHeight = val => setAttributes({
+    sliderHeight: val
+  });
+
+  // Block props
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: "tm-slider creative-conference creative-conference__slider"
   });
-  const device = (0,_hooks_useDeviceType__WEBPACK_IMPORTED_MODULE_8__["default"])();
-  console.log(device);
-  const allSlideCSS = (0,_components_getDynamicCSS__WEBPACK_IMPORTED_MODULE_9__.getAllSlideCSS)(slides, clientId);
 
-  // const getSlideClassName = (index) =>
-  // 	`accordion-child-${clientId.slice(0, 8)}-${index}`;
-
-  // const allSlideCSS = slides
-  // 	.map((slide, index) => {
-  // 		const slideClass = getSlideClassName(index);
-  // 		return `
-  // 		.${slideClass} .zolo-accordion-head-title {
-  // 			font-size: ${slide?.fontSize?.desktop || "36px"};
-  // 		}
-  // 		@media (max-width: 1024px) {
-  // 			.${slideClass} .zolo-accordion-head-title {
-  // 				font-size: ${slide?.fontSize?.tablet || "28px"};
-  // 			}
-  // 		}
-  // 		@media (max-width: 767px) {
-  // 			.${slideClass} .zolo-accordion-head-title {
-  // 				font-size: ${slide?.fontSize?.mobile || "22px"};
-  // 			}
-  // 		}
-  // 	`;
-  // 	})
-  // 	.join("\n");
-  console.log(allSlideCSS);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+  // Generate Dynamic CSS
+  const allSlideCSS = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useMemo)(() => {
+    const css = slides.map((slide, index) => {
+      const className = `slider-${index}-${clientId}`;
+      return `
+				.${className} .zolo-accordion-head-title {
+					font-size: ${slide.fontSize?.desktop};
+				}
+				@media (max-width: 1024px) {
+					.${className} .zolo-accordion-head-title {
+						font-size: ${slide.fontSize?.tablet};
+					}
+				}
+				@media (max-width: 767px) {
+					.${className} .zolo-accordion-head-title {
+						font-size: ${slide.fontSize?.mobile};
+					}
+				}`;
+    }).join("\n");
+    setAttributes({
+      customCss: css,
+      unId: clientId
+    });
+    return css;
+  }, [slides, clientId, setAttributes]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Slides", "text-domain"),
-        children: [slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          style: {
-            marginBottom: "10px",
-            borderBottom: "1px solid #ccc",
-            paddingBottom: "10px"
-          },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h5", {
+        initialOpen: true,
+        children: [slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          className: "zolo-slide-panel",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
             children: `Slide ${index + 1}`
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Title 1", "text-domain"),
-            value: slide.title1,
-            onChange: val => updateSlide(index, "title1", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Title 2", "text-domain"),
-            value: slide.title2,
-            onChange: val => updateSlide(index, "title2", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Speaker Name", "text-domain"),
-            value: slide.speakerName,
-            onChange: val => updateSlide(index, "speakerName", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Speaker Role", "text-domain"),
-            value: slide.speakerRole,
-            onChange: val => updateSlide(index, "speakerRole", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Location", "text-domain"),
-            value: slide.location,
-            onChange: val => updateSlide(index, "location", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Time", "text-domain"),
-            value: slide.datetime,
-            onChange: val => updateSlide(index, "datetime", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Content Max Width", "text-domain"),
+          }), ["title1", "title2", "speakerName", "speakerRole", "location", "datetime"].map(field => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)(field.replace(/([A-Z])/g, " $1"), "text-domain"),
+            value: slide[field],
+            onChange: val => updateSlide(index, field, val)
+          }, field)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Content Max Width (px)", "text-domain"),
             value: slide.maxWidth,
             onChange: val => updateSlide(index, "maxWidth", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
             label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Slider Height (px)", "text-domain"),
             value: sliderHeight,
-            onChange: updateAllSliderHeight
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+            onChange: updateSliderHeight
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
             label: `Font Size (${device})`,
             min: 10,
             max: 250,
@@ -11974,34 +11917,29 @@ function Edit({
               ...slide.fontSize,
               [device]: `${val}px`
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
             label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Line Height (%)", "text-domain"),
             min: 50,
             max: 300,
             value: extractNumber(slide.lineHeight),
             onChange: val => updateSlide(index, "lineHeight", addUnit(val, "%"))
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_PaddingControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_PaddingControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
             label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Padding (Top, Right, Bottom, Left)", "text-domain"),
-            value: slide.padding || {
-              top: "0px",
-              right: "0px",
-              bottom: "0px",
-              left: "0px"
-            },
+            value: slide.padding,
             onChange: val => updateSlide(index, "padding", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
               onSelect: media => updateSlide(index, "image", media.url),
               allowedTypes: ["image"],
               render: ({
                 open
-              }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+              }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
                 variant: "secondary",
                 onClick: open,
                 children: slide.image ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Replace Image", "text-domain") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Upload Image", "text-domain")
               })
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
             isDestructive: true,
             onClick: () => removeSlide(index),
             style: {
@@ -12009,17 +11947,17 @@ function Edit({
             },
             children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Remove Slide", "text-domain")
           })]
-        }, index)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+        }, index)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
           isPrimary: true,
           onClick: addSlide,
           children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add New Slide", "text-domain")
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       ...blockProps,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("style", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("style", {
         children: allSlideCSS
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_4__.Swiper, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_4__.Swiper, {
         speed: 1000,
         loop: true,
         slidesPerView: "auto",
@@ -12029,67 +11967,67 @@ function Edit({
           swiperRef.current = swiper;
           setTimeout(() => swiper.update(), 100);
         },
-        children: slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_4__.SwiperSlide, {
-          className: (0,_components_getDynamicCSS__WEBPACK_IMPORTED_MODULE_9__.getSlideClassName)(index),
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+        children: slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_4__.SwiperSlide, {
+          className: `slider-${index}-${clientId}`,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "creative-conference__wrapper",
             style: {
-              minHeight: sliderHeight || "100vh"
+              minHeight: sliderHeight
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
               src: slide.image,
               className: "creative-conference__img",
               alt: ""
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "container container-customizes",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "creative-conference__content",
                 style: {
-                  maxWidth: slide?.maxWidth || "100%",
-                  padding: `${slide.padding?.top || "0px"} ${slide.padding?.right || "0px"} ${slide.padding?.bottom || "0px"} ${slide.padding?.left || "0px"}`
+                  maxWidth: slide.maxWidth,
+                  padding: `${slide.padding?.top} ${slide.padding?.right} ${slide.padding?.bottom} ${slide.padding?.left}`
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("h1", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("h1", {
                   className: "creative-conference__title anim-line-words home-intro__highlight zolo-accordion-head-title",
                   style: {
-                    lineHeight: slide.lineHeight || "100%"
+                    lineHeight: slide.lineHeight
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                     className: "home-intro__highlight-word",
                     children: slide.title1
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                     className: "home-intro__highlight-word small-text",
                     children: slide.title2
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                   className: "creative-conference__speaker",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
                     className: "speaker__img",
                     src: slide.image,
                     alt: ""
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                     className: "speaker__content",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                       className: "speaker__inner-text anim-line-words",
                       children: "UPCOMING"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h6", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
                       className: "speaker__name",
                       children: slide.speakerName
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                       className: "speaker__desp",
                       children: slide.speakerRole
                     })]
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                   className: "creative-conference__datetime",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                     className: "datetime_desp",
                     children: slide.location
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                     className: "datetime__content",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                       className: "datetime__name",
                       children: "Mar 25"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h6", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
                       className: "datetime__desp",
                       children: slide.datetime
                     })]
@@ -12099,23 +12037,23 @@ function Edit({
             })]
           })
         }, index))
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "cc__slider--controller",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "cc__slider__prev--btn",
           onClick: () => swiperRef.current?.slidePrev(),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             className: "dotshape"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h6", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
             className: "text",
             children: "PREV"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "cc__slider__next--btn",
           onClick: () => swiperRef.current?.slideNext(),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             className: "dotshape"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h6", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
             className: "text",
             children: "NEXT"
           })]
@@ -12186,7 +12124,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ save)
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
@@ -12198,90 +12136,108 @@ function save({
   attributes
 }) {
   const {
-    slides,
-    sliderHeight
+    slides = [],
+    sliderHeight = "100vh",
+    customCss = "",
+    unId = ""
   } = attributes;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
       className: "tm-slider creative-conference creative-conference__slider"
     }),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: [customCss && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("style", {
+      children: customCss
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "swiper-wrapper",
-      children: slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "swiper-slide",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "creative-conference__wrapper parallax-item",
-          style: {
-            minHeight: sliderHeight || "100vh"
-          },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-            src: slide.image,
-            className: "creative-conference__img",
-            alt: "..."
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "container container-customizes",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              className: "creative-conference__content",
-              style: {
-                maxWidth: slide?.maxWidth || "100%",
-                padding: `${slide.padding?.top || "0px"} ${slide.padding?.right || "0px"} ${slide.padding?.bottom || "0px"} ${slide.padding?.left || "0px"}`
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h1", {
-                className: "creative-conference__title anim-line-words home-intro__highlight",
+      children: slides.map((slide, index) => {
+        const {
+          image,
+          title1,
+          title2,
+          speakerName,
+          speakerRole,
+          location,
+          datetime,
+          maxWidth,
+          lineHeight,
+          padding = {}
+        } = slide;
+        const slideClass = `swiper-slide slider-${index}-${unId}`;
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: slideClass,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "creative-conference__wrapper parallax-item",
+            style: {
+              minHeight: sliderHeight
+            },
+            children: [image && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+              src: image,
+              className: "creative-conference__img",
+              alt: "Slide background"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "container container-customizes",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "creative-conference__content",
                 style: {
-                  lineHeight: slide.lineHeight || "100%",
-                  fontSize: slide.fontSize || "36px"
+                  maxWidth: maxWidth || "100%",
+                  padding: `${padding.top || "0px"} ${padding.right || "0px"} ${padding.bottom || "0px"} ${padding.left || "0px"}`
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "home-intro__highlight-word",
-                  children: slide.title1
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "home-intro__highlight-word small-text",
-                  children: slide.title2
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "creative-conference__speaker",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-                  className: "speaker__img",
-                  src: slide.image,
-                  alt: "..."
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                  className: "speaker__content",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: "speaker__inner-text anim-line-words",
-                    children: "UPCOMING"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
-                    className: "speaker__name",
-                    children: slide.speakerName
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                    className: "speaker__desp",
-                    children: slide.speakerRole
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h1", {
+                  className: "creative-conference__title anim-line-words home-intro__highlight zolo-accordion-head-title",
+                  style: {
+                    lineHeight: lineHeight || "100%"
+                  },
+                  children: [title1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                    className: "home-intro__highlight-word",
+                    children: title1
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), title2 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                    className: "home-intro__highlight-word small-text",
+                    children: title2
                   })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "creative-conference__datetime",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                  className: "datetime_desp",
-                  children: slide.location
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                  className: "datetime__content",
+                  className: "creative-conference__speaker",
+                  children: [image && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                    className: "speaker__img",
+                    src: image,
+                    alt: "Speaker"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                    className: "speaker__content",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                      className: "speaker__inner-text anim-line-words",
+                      children: "UPCOMING"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
+                      className: "speaker__name",
+                      children: speakerName
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                      className: "speaker__desp",
+                      children: speakerRole
+                    })]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                  className: "creative-conference__datetime",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                    className: "datetime__name",
-                    children: "Mar 25"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
-                    className: "datetime__desp",
-                    children: slide.datetime
+                    className: "datetime_desp",
+                    children: location
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                    className: "datetime__content",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                      className: "datetime__name",
+                      children: "Mar 25"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
+                      className: "datetime__desp",
+                      children: datetime
+                    })]
                   })]
                 })]
-              })]
-            })
-          })]
-        })
-      }, index))
+              })
+            })]
+          })
+        }, index);
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "cc__slider--controller",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "cc__slider__prve--btn",
+        className: "cc__slider__prev--btn",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "dotshape"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
@@ -12300,7 +12256,6 @@ function save({
     })]
   });
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (save);
 
 /***/ }),
 

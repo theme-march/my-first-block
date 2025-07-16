@@ -11,177 +11,142 @@ import {
 	TextControl,
 	RangeControl,
 } from "@wordpress/components";
-import { useRef } from "@wordpress/element";
+import { useRef, useMemo, useCallback } from "@wordpress/element";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax, Pagination } from "swiper/modules";
 
 import PaddingControl from "./components/PaddingControl";
 import CustomRangeControl from "./components/CustomRangeControl";
-
 import useDeviceType from "./hooks/useDeviceType";
 
-import { getAllSlideCSS, getSlideClassName } from "./components/getDynamicCSS";
+// Helpers
+const extractNumber = (val) =>
+	parseFloat(val?.toString().replace(/[^\d.]/g, "")) || 0;
+
+const addUnit = (num, unit) =>
+	num !== undefined && num !== null ? `${num}${unit}` : "";
+
+const defaultSlide = () => ({
+	title1: "Title One",
+	title2: "Subtitle",
+	speakerName: "Speaker Name",
+	speakerRole: "Speaker Role",
+	location: "Venue",
+	datetime: "10:00 AM",
+	image: "",
+	lineHeight: "100%",
+	maxWidth: "950px",
+	fontSize: {
+		desktop: "36px",
+		tablet: "28px",
+		mobile: "22px",
+	},
+	padding: {
+		top: "0px",
+		right: "0px",
+		bottom: "0px",
+		left: "0px",
+	},
+	customCss: "",
+	unId: "",
+});
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const { slides = [], sliderHeight = "100vh" } = attributes;
 
 	const swiperRef = useRef(null);
+	const device = useDeviceType();
 
-	const extractNumber = (val) => {
-		if (!val) return 0;
-		return parseFloat(val.toString().replace(/[^\d.]/g, "")) || 0;
-	};
+	// Update slide content
+	const updateSlide = useCallback(
+		(index, key, value) => {
+			const newSlides = [...slides];
+			newSlides[index] = { ...newSlides[index], [key]: value };
+			setAttributes({ slides: newSlides });
+		},
+		[slides, setAttributes],
+	);
 
-	const addUnit = (num, unit) => {
-		return num !== undefined && num !== null ? `${num}${unit}` : "";
-	};
+	// Add a new slide
+	const addSlide = () => setAttributes({ slides: [...slides, defaultSlide()] });
 
-	const updateSlide = (index, key, value) => {
-		const newSlides = [...slides];
-		newSlides[index][key] = value;
-		setAttributes({ slides: newSlides });
-	};
+	// Remove a slide
+	const removeSlide = (index) =>
+		setAttributes({ slides: slides.filter((_, i) => i !== index) });
 
-	const addSlide = () => {
-		const newSlide = {
-			title1: "Title One",
-			title2: "Subtitle",
-			speakerName: "Speaker",
-			speakerRole: "Role",
-			location: "Venue",
-			datetime: "10:00 AM",
-			image: "",
-			lineHeight: "100%",
-			fontSize: "36px",
-			maxWidth: "950px",
-			fontSize: {
-				desktop: "36px",
-				tablet: "28px",
-				mobile: "22px",
-			},
-			padding: {
-				top: "0px",
-				right: "0px",
-				bottom: "0px",
-				left: "0px",
-			},
-		};
-		setAttributes({ slides: [...slides, newSlide] });
-	};
+	// Set slider height
+	const updateSliderHeight = (val) => setAttributes({ sliderHeight: val });
 
-	const removeSlide = (index) => {
-		const newSlides = slides.filter((_, i) => i !== index);
-		setAttributes({ slides: newSlides });
-	};
-
-	const updateAllSliderHeight = (val) => {
-		setAttributes({ sliderHeight: val });
-	};
-
+	// Block props
 	const blockProps = useBlockProps({
 		className: "tm-slider creative-conference creative-conference__slider",
 	});
 
-	const device = useDeviceType();
-	console.log(device);
+	// Generate Dynamic CSS
+	const allSlideCSS = useMemo(() => {
+		const css = slides
+			.map((slide, index) => {
+				const className = `slider-${index}-${clientId}`;
+				return `
+				.${className} .zolo-accordion-head-title {
+					font-size: ${slide.fontSize?.desktop};
+				}
+				@media (max-width: 1024px) {
+					.${className} .zolo-accordion-head-title {
+						font-size: ${slide.fontSize?.tablet};
+					}
+				}
+				@media (max-width: 767px) {
+					.${className} .zolo-accordion-head-title {
+						font-size: ${slide.fontSize?.mobile};
+					}
+				}`;
+			})
+			.join("\n");
 
-	const allSlideCSS = getAllSlideCSS(slides, clientId);
-
-	// const getSlideClassName = (index) =>
-	// 	`accordion-child-${clientId.slice(0, 8)}-${index}`;
-
-	// const allSlideCSS = slides
-	// 	.map((slide, index) => {
-	// 		const slideClass = getSlideClassName(index);
-	// 		return `
-	// 		.${slideClass} .zolo-accordion-head-title {
-	// 			font-size: ${slide?.fontSize?.desktop || "36px"};
-	// 		}
-	// 		@media (max-width: 1024px) {
-	// 			.${slideClass} .zolo-accordion-head-title {
-	// 				font-size: ${slide?.fontSize?.tablet || "28px"};
-	// 			}
-	// 		}
-	// 		@media (max-width: 767px) {
-	// 			.${slideClass} .zolo-accordion-head-title {
-	// 				font-size: ${slide?.fontSize?.mobile || "22px"};
-	// 			}
-	// 		}
-	// 	`;
-	// 	})
-	// 	.join("\n");
-	console.log(allSlideCSS);
+		setAttributes({ customCss: css, unId: clientId });
+		return css;
+	}, [slides, clientId, setAttributes]);
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__("Slides", "text-domain")}>
+				<PanelBody title={__("Slides", "text-domain")} initialOpen={true}>
 					{slides.map((slide, index) => (
-						<div
-							key={index}
-							style={{
-								marginBottom: "10px",
-								borderBottom: "1px solid #ccc",
-								paddingBottom: "10px",
-							}}
-						>
-							<h5>{`Slide ${index + 1}`}</h5>
-							<TextControl
-								label={__("Title 1", "text-domain")}
-								value={slide.title1}
-								onChange={(val) => updateSlide(index, "title1", val)}
-							/>
-							<TextControl
-								label={__("Title 2", "text-domain")}
-								value={slide.title2}
-								onChange={(val) => updateSlide(index, "title2", val)}
-							/>
-							<TextControl
-								label={__("Speaker Name", "text-domain")}
-								value={slide.speakerName}
-								onChange={(val) => updateSlide(index, "speakerName", val)}
-							/>
-							<TextControl
-								label={__("Speaker Role", "text-domain")}
-								value={slide.speakerRole}
-								onChange={(val) => updateSlide(index, "speakerRole", val)}
-							/>
-							<TextControl
-								label={__("Location", "text-domain")}
-								value={slide.location}
-								onChange={(val) => updateSlide(index, "location", val)}
-							/>
-							<TextControl
-								label={__("Time", "text-domain")}
-								value={slide.datetime}
-								onChange={(val) => updateSlide(index, "datetime", val)}
-							/>
+						<div key={index} className="zolo-slide-panel">
+							<h4>{`Slide ${index + 1}`}</h4>
 
-							{/*Max Width RangeControl (number in px) */}
+							{/* Text Fields */}
+							{[
+								"title1",
+								"title2",
+								"speakerName",
+								"speakerRole",
+								"location",
+								"datetime",
+							].map((field) => (
+								<TextControl
+									key={field}
+									label={__(field.replace(/([A-Z])/g, " $1"), "text-domain")}
+									value={slide[field]}
+									onChange={(val) => updateSlide(index, field, val)}
+								/>
+							))}
+
+							{/* Controls */}
 							<CustomRangeControl
-								label={__("Content Max Width", "text-domain")}
+								label={__("Content Max Width (px)", "text-domain")}
 								value={slide.maxWidth}
 								onChange={(val) => updateSlide(index, "maxWidth", val)}
 							/>
 
-							{/* Slider Height controls all slides */}
 							<CustomRangeControl
 								label={__("Slider Height (px)", "text-domain")}
 								value={sliderHeight}
-								onChange={updateAllSliderHeight}
+								onChange={updateSliderHeight}
 							/>
 
-							{/* Font Size RangeControl (number in px) */}
-							{/* <RangeControl
-								label={__("Font Size (px)", "text-domain")}
-								min={10}
-								max={250}
-								value={extractNumber(slide.fontSize)}
-								onChange={(val) =>
-									updateSlide(index, "fontSize", addUnit(val, "px"))
-								}
-							/> */}
 							<RangeControl
 								label={`Font Size (${device})`}
 								min={10}
@@ -195,7 +160,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 								}
 							/>
 
-							{/* Line Height RangeControl (number in %) */}
 							<RangeControl
 								label={__("Line Height (%)", "text-domain")}
 								min={50}
@@ -208,17 +172,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 							<PaddingControl
 								label={__("Padding (Top, Right, Bottom, Left)", "text-domain")}
-								value={
-									slide.padding || {
-										top: "0px",
-										right: "0px",
-										bottom: "0px",
-										left: "0px",
-									}
-								}
+								value={slide.padding}
 								onChange={(val) => updateSlide(index, "padding", val)}
 							/>
 
+							{/* Image Upload */}
 							<MediaUploadCheck>
 								<MediaUpload
 									onSelect={(media) => updateSlide(index, "image", media.url)}
@@ -242,6 +200,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							</Button>
 						</div>
 					))}
+
 					<Button isPrimary onClick={addSlide}>
 						{__("Add New Slide", "text-domain")}
 					</Button>
@@ -250,9 +209,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 			<div {...blockProps}>
 				<style>{allSlideCSS}</style>
+
 				<Swiper
 					speed={1000}
-					loop={true}
+					loop
 					slidesPerView="auto"
 					modules={[Parallax, Pagination]}
 					allowTouchMove={false}
@@ -262,10 +222,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					}}
 				>
 					{slides.map((slide, index) => (
-						<SwiperSlide key={index} className={getSlideClassName(index)}>
+						<SwiperSlide key={index} className={`slider-${index}-${clientId}`}>
 							<div
 								className="creative-conference__wrapper"
-								style={{ minHeight: sliderHeight || "100vh" }}
+								style={{ minHeight: sliderHeight }}
 							>
 								<img
 									src={slide.image}
@@ -276,19 +236,13 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									<div
 										className="creative-conference__content"
 										style={{
-											maxWidth: slide?.maxWidth || "100%",
-											padding: `${slide.padding?.top || "0px"} ${
-												slide.padding?.right || "0px"
-											} ${slide.padding?.bottom || "0px"} ${
-												slide.padding?.left || "0px"
-											}`,
+											maxWidth: slide.maxWidth,
+											padding: `${slide.padding?.top} ${slide.padding?.right} ${slide.padding?.bottom} ${slide.padding?.left}`,
 										}}
 									>
 										<h1
 											className="creative-conference__title anim-line-words home-intro__highlight zolo-accordion-head-title"
-											style={{
-												lineHeight: slide.lineHeight || "100%",
-											}}
+											style={{ lineHeight: slide.lineHeight }}
 										>
 											<span className="home-intro__highlight-word">
 												{slide.title1}
@@ -298,6 +252,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 												{slide.title2}
 											</span>
 										</h1>
+
 										<div className="creative-conference__speaker">
 											<img className="speaker__img" src={slide.image} alt="" />
 											<div className="speaker__content">
@@ -308,6 +263,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 												<p className="speaker__desp">{slide.speakerRole}</p>
 											</div>
 										</div>
+
 										<div className="creative-conference__datetime">
 											<p className="datetime_desp">{slide.location}</p>
 											<div className="datetime__content">
@@ -322,6 +278,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					))}
 				</Swiper>
 
+				{/* Slider Controller */}
 				<div className="cc__slider--controller">
 					<div
 						className="cc__slider__prev--btn"

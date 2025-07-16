@@ -85,6 +85,14 @@
     "sliderHeight": {
       "type": "string",
       "default": "100vh"
+    },
+    "customCss": {
+      "type": "string",
+      "default": ""
+    },
+    "unId": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "Conference",

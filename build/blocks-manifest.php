@@ -356,6 +356,14 @@ return array(
 			'sliderHeight' => array(
 				'type' => 'string',
 				'default' => '100vh'
+			),
+			'customCss' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'unId' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'textdomain' => 'Conference',
