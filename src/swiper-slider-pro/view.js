@@ -35,11 +35,11 @@ document.querySelectorAll(".creative-conference__slider").forEach((slider) => {
 
 		const tl = gsap.timeline();
 		const words = active.querySelectorAll(".home-intro__highlight-word");
-		const [word1, word2] = [...words].map(
+		const [word1] = [...words].map(
 			(el) => new SplitText(el, { type: "chars" }),
 		);
 
-		tl.from([word1.chars, word2.chars], {
+		tl.from([word1.chars], {
 			rotateX: 50,
 			opacity: 0,
 			x: 20,

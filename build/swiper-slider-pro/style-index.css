@@ -61,7 +61,7 @@
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-  z-index: 2;
+  z-index: -1;
 }
 .creative-conference__speaker .speaker__inner-text {
   position: absolute;
@@ -80,7 +80,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 100%;
-  z-index: 1;
+  z-index: -1;
   background-color: transparent;
   background: transparent;
   opacity: 0.15;
@@ -106,7 +106,6 @@
   font-size: 24px;
   font-weight: 600;
   line-height: 100%;
-  color: #fff;
 }
 .creative-conference .cc__slider--controller {
   position: absolute;

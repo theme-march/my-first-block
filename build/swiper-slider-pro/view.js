@@ -11196,10 +11196,10 @@ document.querySelectorAll(".creative-conference__slider").forEach(slider => {
     if (!active) return;
     const tl = gsap__WEBPACK_IMPORTED_MODULE_1__["default"].timeline();
     const words = active.querySelectorAll(".home-intro__highlight-word");
-    const [word1, word2] = [...words].map(el => new gsap_SplitText__WEBPACK_IMPORTED_MODULE_2__["default"](el, {
+    const [word1] = [...words].map(el => new gsap_SplitText__WEBPACK_IMPORTED_MODULE_2__["default"](el, {
       type: "chars"
     }));
-    tl.from([word1.chars, word2.chars], {
+    tl.from([word1.chars], {
       rotateX: 50,
       opacity: 0,
       x: 20,

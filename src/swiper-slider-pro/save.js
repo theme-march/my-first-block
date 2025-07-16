@@ -1,4 +1,5 @@
-import { useBlockProps } from "@wordpress/block-editor";
+// save.js
+import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 export default function save({ attributes }) {
 	const {
@@ -14,22 +15,23 @@ export default function save({ attributes }) {
 				className: "tm-slider creative-conference creative-conference__slider",
 			})}
 		>
-			{/* Dynamic CSS for responsive typography */}
 			{customCss && <style>{customCss}</style>}
 
 			<div className="swiper-wrapper">
 				{slides.map((slide, index) => {
 					const {
-						image,
 						title1,
-						title2,
+						image,
 						speakerName,
-						speakerRole,
 						location,
 						datetime,
 						maxWidth,
 						lineHeight,
 						padding = {},
+						titleColor,
+						speakerNameColor,
+						locationColor,
+						datetimeColor,
 					} = slide;
 
 					const slideClass = `swiper-slide slider-${index}-${unId}`;
@@ -58,25 +60,22 @@ export default function save({ attributes }) {
 											} ${padding.bottom || "0px"} ${padding.left || "0px"}`,
 										}}
 									>
-										{/* Slide Title */}
 										<h1
 											className="creative-conference__title anim-line-words home-intro__highlight zolo-accordion-head-title"
-											style={{ lineHeight: lineHeight || "100%" }}
+											style={{
+												lineHeight: lineHeight || "100%",
+												color: titleColor,
+											}}
 										>
 											{title1 && (
-												<span className="home-intro__highlight-word">
-													{title1}
-												</span>
-											)}
-											<br />
-											{title2 && (
-												<span className="home-intro__highlight-word small-text">
-													{title2}
-												</span>
+												<RichText.Content
+													tagName="span"
+													className="home-intro__highlight-word"
+													value={title1}
+												></RichText.Content>
 											)}
 										</h1>
 
-										{/* Speaker Info */}
 										<div className="creative-conference__speaker">
 											{image && (
 												<img
@@ -89,16 +88,26 @@ export default function save({ attributes }) {
 												<div className="speaker__inner-text anim-line-words">
 													UPCOMING
 												</div>
-												<h6 className="speaker__name">{speakerName}</h6>
-												<p className="speaker__desp">{speakerRole}</p>
+												<RichText.Content
+													tagName="h6"
+													className="speaker__name"
+													value={speakerName}
+													style={{ color: speakerNameColor }}
+												></RichText.Content>
 											</div>
 										</div>
 
-										{/* Location & Date */}
 										<div className="creative-conference__datetime">
-											<p className="datetime_desp">{location}</p>
-											<div className="datetime__content">
-												<p className="datetime__name">Mar 25</p>
+											<p
+												className="datetime_desp"
+												style={{ color: locationColor }}
+											>
+												{location}
+											</p>
+											<div
+												className="datetime__content"
+												style={{ color: datetimeColor }}
+											>
 												<h6 className="datetime__desp">{datetime}</h6>
 											</div>
 										</div>
@@ -110,7 +119,6 @@ export default function save({ attributes }) {
 				})}
 			</div>
 
-			{/* Navigation Buttons */}
 			<div className="cc__slider--controller">
 				<div className="cc__slider__prev--btn">
 					<div className="dotshape"></div>

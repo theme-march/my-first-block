@@ -4,13 +4,10 @@ import {
 	InspectorControls,
 	MediaUpload,
 	MediaUploadCheck,
+	PanelColorSettings,
+	RichText,
 } from "@wordpress/block-editor";
-import {
-	PanelBody,
-	Button,
-	TextControl,
-	RangeControl,
-} from "@wordpress/components";
+import { PanelBody, Button, RangeControl } from "@wordpress/components";
 import { useRef, useMemo, useCallback } from "@wordpress/element";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -48,8 +45,11 @@ const defaultSlide = () => ({
 		bottom: "0px",
 		left: "0px",
 	},
-	customCss: "",
-	unId: "",
+	titleColor: "#000000",
+	speakerNameColor: "#000000",
+	speakerRoleColor: "#000000",
+	locationColor: "#000000",
+	datetimeColor: "#000000",
 });
 
 export default function Edit({ attributes, setAttributes, clientId }) {
@@ -69,21 +69,25 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	);
 
 	// Add a new slide
-	const addSlide = () => setAttributes({ slides: [...slides, defaultSlide()] });
+	const addSlide = useCallback(() => {
+		setAttributes({ slides: [...slides, defaultSlide()] });
+	}, [slides, setAttributes]);
 
 	// Remove a slide
-	const removeSlide = (index) =>
-		setAttributes({ slides: slides.filter((_, i) => i !== index) });
+	const removeSlide = useCallback(
+		(index) => {
+			setAttributes({ slides: slides.filter((_, i) => i !== index) });
+		},
+		[slides, setAttributes],
+	);
 
-	// Set slider height
-	const updateSliderHeight = (val) => setAttributes({ sliderHeight: val });
+	// Update slider height
+	const updateSliderHeight = useCallback(
+		(val) => setAttributes({ sliderHeight: val }),
+		[setAttributes],
+	);
 
-	// Block props
-	const blockProps = useBlockProps({
-		className: "tm-slider creative-conference creative-conference__slider",
-	});
-
-	// Generate Dynamic CSS
+	// Generate Dynamic CSS for font sizes
 	const allSlideCSS = useMemo(() => {
 		const css = slides
 			.map((slide, index) => {
@@ -104,10 +108,13 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				}`;
 			})
 			.join("\n");
-
 		setAttributes({ customCss: css, unId: clientId });
 		return css;
 	}, [slides, clientId, setAttributes]);
+
+	const blockProps = useBlockProps({
+		className: "tm-slider creative-conference creative-conference__slider",
+	});
 
 	return (
 		<>
@@ -116,23 +123,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					{slides.map((slide, index) => (
 						<div key={index} className="zolo-slide-panel">
 							<h4>{`Slide ${index + 1}`}</h4>
-
-							{/* Text Fields */}
-							{[
-								"title1",
-								"title2",
-								"speakerName",
-								"speakerRole",
-								"location",
-								"datetime",
-							].map((field) => (
-								<TextControl
-									key={field}
-									label={__(field.replace(/([A-Z])/g, " $1"), "text-domain")}
-									value={slide[field]}
-									onChange={(val) => updateSlide(index, field, val)}
-								/>
-							))}
 
 							{/* Controls */}
 							<CustomRangeControl
@@ -191,6 +181,43 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 								/>
 							</MediaUploadCheck>
 
+							<PanelColorSettings
+								title={__("Text Colors", "text-domain")}
+								initialOpen={false}
+								colorSettings={[
+									{
+										label: __("Title Color"),
+										value: slide.titleColor,
+										onChange: (color) =>
+											updateSlide(index, "titleColor", color),
+									},
+									{
+										label: __("Speaker Name Color"),
+										value: slide.speakerNameColor,
+										onChange: (color) =>
+											updateSlide(index, "speakerNameColor", color),
+									},
+									{
+										label: __("Speaker Role Color"),
+										value: slide.speakerRoleColor,
+										onChange: (color) =>
+											updateSlide(index, "speakerRoleColor", color),
+									},
+									{
+										label: __("Location Color"),
+										value: slide.locationColor,
+										onChange: (color) =>
+											updateSlide(index, "locationColor", color),
+									},
+									{
+										label: __("Datetime Color"),
+										value: slide.datetimeColor,
+										onChange: (color) =>
+											updateSlide(index, "datetimeColor", color),
+									},
+								]}
+							/>
+
 							<Button
 								isDestructive
 								onClick={() => removeSlide(index)}
@@ -240,18 +267,19 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											padding: `${slide.padding?.top} ${slide.padding?.right} ${slide.padding?.bottom} ${slide.padding?.left}`,
 										}}
 									>
-										<h1
+										{/* Title with RichText and multiline support */}
+										<RichText
+											tagName="h1"
 											className="creative-conference__title anim-line-words home-intro__highlight zolo-accordion-head-title"
-											style={{ lineHeight: slide.lineHeight }}
-										>
-											<span className="home-intro__highlight-word">
-												{slide.title1}
-											</span>
-											<br />
-											<span className="home-intro__highlight-word small-text">
-												{slide.title2}
-											</span>
-										</h1>
+											style={{
+												lineHeight: slide.lineHeight,
+												color: slide.titleColor,
+											}}
+											value={slide.title1}
+											onChange={(val) => {
+												updateSlide(index, "title1", val);
+											}}
+										/>
 
 										<div className="creative-conference__speaker">
 											<img className="speaker__img" src={slide.image} alt="" />
@@ -259,16 +287,38 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 												<div className="speaker__inner-text anim-line-words">
 													UPCOMING
 												</div>
-												<h6 className="speaker__name">{slide.speakerName}</h6>
-												<p className="speaker__desp">{slide.speakerRole}</p>
+												<RichText
+													tagName="h6"
+													className="speaker_name"
+													style={{ color: slide.speakerNameColor }}
+													value={slide.speakerName}
+													onChange={(val) =>
+														updateSlide(index, "speakerName", val)
+													}
+												/>
 											</div>
 										</div>
 
 										<div className="creative-conference__datetime">
-											<p className="datetime_desp">{slide.location}</p>
-											<div className="datetime__content">
-												<p className="datetime__name">Mar 25</p>
-												<h6 className="datetime__desp">{slide.datetime}</h6>
+											<RichText
+												tagName="p"
+												className="datetime_desp"
+												style={{ color: slide.locationColor }}
+												value={slide.location}
+												onChange={(val) => updateSlide(index, "location", val)}
+											/>
+											<div
+												className="datetime__content"
+												style={{ color: slide.datetimeColor }}
+											>
+												<RichText
+													tagName="h6"
+													className="datetime__desp"
+													value={slide.datetime}
+													onChange={(val) =>
+														updateSlide(index, "datetime", val)
+													}
+												/>
 											</div>
 										</div>
 									</div>
