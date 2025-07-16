@@ -47,7 +47,6 @@ const defaultSlide = () => ({
 	},
 	titleColor: "#000000",
 	speakerNameColor: "#000000",
-	speakerRoleColor: "#000000",
 	locationColor: "#000000",
 	datetimeColor: "#000000",
 });
@@ -122,7 +121,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				<PanelBody title={__("Slides", "text-domain")} initialOpen={true}>
 					{slides.map((slide, index) => (
 						<div key={index} className="zolo-slide-panel">
-							<h4>{`Slide ${index + 1}`}</h4>
+							<h4 className="mt-3">{`Slide ${index + 1}`}</h4>
 
 							{/* Controls */}
 							<CustomRangeControl
@@ -181,12 +180,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 										onChange: (color) =>
 											updateSlide(index, "speakerNameColor", color),
 									},
-									{
-										label: __("Speaker Role Color"),
-										value: slide.speakerRoleColor,
-										onChange: (color) =>
-											updateSlide(index, "speakerRoleColor", color),
-									},
+
 									{
 										label: __("Location Color"),
 										value: slide.locationColor,

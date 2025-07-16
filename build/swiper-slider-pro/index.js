@@ -11817,7 +11817,6 @@ const defaultSlide = () => ({
   },
   titleColor: "#000000",
   speakerNameColor: "#000000",
-  speakerRoleColor: "#000000",
   locationColor: "#000000",
   datetimeColor: "#000000"
 });
@@ -11900,6 +11899,7 @@ function Edit({
         children: [slides.map((slide, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "zolo-slide-panel",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+            className: "mt-3",
             children: `Slide ${index + 1}`
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_CustomRangeControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
             label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Content Max Width (px)", "text-domain"),
@@ -11928,18 +11928,6 @@ function Edit({
             label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Padding (Top, Right, Bottom, Left)", "text-domain"),
             value: slide.padding,
             onChange: val => updateSlide(index, "padding", val)
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
-              onSelect: media => updateSlide(index, "image", media.url),
-              allowedTypes: ["image"],
-              render: ({
-                open
-              }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-                variant: "secondary",
-                onClick: open,
-                children: slide.image ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Replace Image", "text-domain") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Upload Image", "text-domain")
-              })
-            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
             title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Text Colors", "text-domain"),
             initialOpen: false,
@@ -11952,10 +11940,6 @@ function Edit({
               value: slide.speakerNameColor,
               onChange: color => updateSlide(index, "speakerNameColor", color)
             }, {
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Speaker Role Color"),
-              value: slide.speakerRoleColor,
-              onChange: color => updateSlide(index, "speakerRoleColor", color)
-            }, {
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Location Color"),
               value: slide.locationColor,
               onChange: color => updateSlide(index, "locationColor", color)
@@ -11964,6 +11948,18 @@ function Edit({
               value: slide.datetimeColor,
               onChange: color => updateSlide(index, "datetimeColor", color)
             }]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
+              onSelect: media => updateSlide(index, "image", media.url),
+              allowedTypes: ["image"],
+              render: ({
+                open
+              }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                variant: "secondary",
+                onClick: open,
+                children: slide.image ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Replace Image", "text-domain") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Upload Image", "text-domain")
+              })
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
             isDestructive: true,
             onClick: () => removeSlide(index),
@@ -12251,20 +12247,22 @@ function save({
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
                   className: "creative-conference__datetime",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
+                    tagName: "p",
                     className: "datetime_desp",
+                    value: location,
                     style: {
                       color: locationColor
-                    },
-                    children: location
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: "datetime__content",
                     style: {
                       color: datetimeColor
                     },
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
+                      tagName: "h6",
                       className: "datetime__desp",
-                      children: datetime
+                      value: datetime
                     })
                   })]
                 })]

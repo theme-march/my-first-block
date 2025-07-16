@@ -93,22 +93,26 @@ export default function save({ attributes }) {
 													className="speaker__name"
 													value={speakerName}
 													style={{ color: speakerNameColor }}
-												></RichText.Content>
+												/>
 											</div>
 										</div>
 
 										<div className="creative-conference__datetime">
-											<p
+											<RichText.Content
+												tagName="p"
 												className="datetime_desp"
+												value={location}
 												style={{ color: locationColor }}
-											>
-												{location}
-											</p>
+											/>
 											<div
 												className="datetime__content"
 												style={{ color: datetimeColor }}
 											>
-												<h6 className="datetime__desp">{datetime}</h6>
+												<RichText.Content
+													tagName="h6"
+													className="datetime__desp"
+													value={datetime}
+												/>
 											</div>
 										</div>
 									</div>
